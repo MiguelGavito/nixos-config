@@ -1,0 +1,23 @@
+# Resultados de builds de Nix
+result
+result-*
+
+# Archivos temporales
+*.swp
+*.swo
+*.tmp
+
+# Backups de editores
+*~
+*.bak
+
+# Directorios de caché
+.direnv/
+.envrc
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
