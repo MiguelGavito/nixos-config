@@ -16,7 +16,7 @@
       modules = [
         ./hosts/elnavio/configuration.nix
 
-        home-manager.nixosModules.home-manager
+		# home-manager.nixosModules.home-manager
 
         {
           home-manager.useUserPackages = true;
