@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./homeManagerModules
+    ../../homeManagerModules
   ];
 
   home.stateVersion = "25.11";

@@ -6,8 +6,6 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    
   };
 
   outputs = { self, nixpkgs, home-manager, ... }: {
@@ -16,15 +14,13 @@
       modules = [
         ./hosts/elnavio/configuration.nix
 
-		# home-manager.nixosModules.home-manager
-
+        home-manager.nixosModules.home-manager
         {
           home-manager.useUserPackages = true;
+          home-manager.useGlobalPkgs = true;
           home-manager.users.miguelagg = import ./hosts/elnavio/home.nix;
         }
       ];
     };
   };
-
-  
 }
