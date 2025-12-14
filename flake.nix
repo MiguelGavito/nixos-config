@@ -20,7 +20,7 @@
 
         {
           home-manager.useUserPackages = true;
-          home-manager.users.miguelagg = import ./home.nix;
+          home-manager.users.miguelagg = import ./hosts/elnavio/home.nix;
         }
       ];
     };
