@@ -6,18 +6,68 @@ result-*
 *.swp
 *.swo
 *.tmp
+*.temp
 
-# Backups de editores
+# Backups de editores y configuraciones
 *~
 *.bak
+*.backup
+*.old
+configuration.nix.backup-*
 
 # Directorios de caché
 .direnv/
 .envrc
+.cache/
 
 # Logs
 *.log
 
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+.Trash-*
+.nfs*
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Secrets (si usas sops-nix en el futuro)
+secrets/
+*.age
+*.key
+
+# Hardware específico (no commitear el tuyo)
+# Descomenta si quieres ignorar hardware-configuration.nix
+# hardware-configuration.nix
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# IDEs
+.idea/
+*.iml
+
+# Nix
+.nix-gc-roots/
+.nix-defexpr/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Docker
+.docker/
 
