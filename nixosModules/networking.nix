@@ -1,4 +1,4 @@
-{ config, pkgs, ... }
+{ config, pkgs, ... }:
 
 {
   networking.hostName = "elnavio"; # Define your hostname.
