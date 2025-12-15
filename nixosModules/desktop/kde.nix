@@ -8,5 +8,11 @@
     services.desktopManager.plasma6.enable = true;
     programs.hyprland.enable = false;
     xdg.portal.enable = true;
+
+    # check later
+    #environment.systemPackages = with pkgs; [
+    #  kdePackages.kate
+    #  kdePackages.konsole
+    #];
   };
 }

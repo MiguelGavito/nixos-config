@@ -14,5 +14,12 @@
     # Portals para Wayland
     xdg.portal.enable = true;
     xdg.portal.extraPortals = [ ];
+
+    # check later
+    #environment.systemPackages = with pkgs; [
+    #  waybar
+    #  wlogout
+    #  hyprpaper
+    #];
   };
 }
