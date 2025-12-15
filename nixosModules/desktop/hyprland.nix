@@ -2,7 +2,7 @@
 
 {
   options.desktops.hyprland.enable = lib.mkEnableOption "HYPRLAND Desktop";
-  config = lib.mkIf config.desktops.gnome.enable {
+  config = lib.mkIf config.desktops.hyprland.enable {
 
     services.xserver.enable = true;
     services.displayManager.sddm.enable = true; # or greetd
