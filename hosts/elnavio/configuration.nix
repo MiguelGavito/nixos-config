@@ -12,7 +12,9 @@
     ];
 
   # Que escritorio prefieres
-  desktop.flavor = "kde"; # "kde" , "gnome" , "hyprland"
+  desktops.kde.enable = true;
+  desktops.gnome.enable = false;
+  desktops.hyprland.enable = false;
 
   # MOVER LA CONFIGURACION DEN UN IMPORT O MODULO SEPARADO, QUIZAS QUE SEA EN EL USUARIO 
 
