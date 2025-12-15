@@ -1,18 +1,24 @@
 { config, lib, ... }:
+
 let
-  flavor = config.desktop.flavor;
-  byName = {
-    gnome = ./gnome.nix;
+  desktopModules = {
     kde = ./kde.nix;
-    hyprlan = ./hyprland;
+    gnome = ./gnome.nix;
+    hyprland = ./hyprland.nix;
   };
-in {
-  options.desktop/flavor = lib.mkOption {
-    type = lib.types.enum [ "gnome" "kde" "hyprland" ];
+  
+  selectedFlavor = config.desktop.flavor;
+in
+{
+  # Define la opción para elegir desktop
+  options.desktop.flavor = lib.mkOption {
+    type = lib.types.enum [ "kde" "gnome" "hyprland" ];
     default = "kde";
-    description = "Desktop environment to enable";
+    description = "Which desktop environment to enable (kde, gnome, hyprland)";
   };
 
-  
-  imports = lib.optional (byName ? ${flavor}) byName.${flavor};
+  # Importa el módulo del DE elegido
+  imports = [
+    (desktopModules.${selectedFlavor})
+  ];
 }

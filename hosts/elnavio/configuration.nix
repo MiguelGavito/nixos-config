@@ -10,7 +10,10 @@
       ./hardware-configuration.nix
       ../../nixosModules/default.nix
     ];
-  
+
+  # Que escritorio prefieres
+  desktop.flavor = "kde"; # "kde" , "gnome" , "hyprland"
+
   # MOVER LA CONFIGURACION DEN UN IMPORT O MODULO SEPARADO, QUIZAS QUE SEA EN EL USUARIO 
 
   # Enable touchpad support (enabled default in most desktopManager).

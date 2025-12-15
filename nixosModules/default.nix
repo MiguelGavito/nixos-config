@@ -8,7 +8,7 @@
     ./graphics.nix
     ./printer.nix
     ./audio.nix
-    ./display.nix
+    ./desktop/default.nix
     ./bluetooth.nix
     ./packages.nix
     ./programs.nix
