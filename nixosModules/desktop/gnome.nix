@@ -28,7 +28,7 @@
     # env variable for cursor
     environment.variables = {
       XCURSOR_THEME = "Adwaita";
-      XCURSOR_THEME = "24";
+      XCURSOR_SIZE = "24";
     };
   };
 }
