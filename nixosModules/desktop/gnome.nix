@@ -37,14 +37,6 @@
       dconf
     ];
 
-
-    # Define el cursor directamente con dconf
-    dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        "cursor-theme" = config.desktops.gnome.cursorTheme;
-        "cursor-size" = 24;
-      };
-    };
   };
 }
 
