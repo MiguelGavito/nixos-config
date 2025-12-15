@@ -2,6 +2,13 @@
 
 {
   options.desktops.gnome.enable = lib.mkEnableOption "GNOME Desktop";
+  
+  options.desktops.gnome.cursorTheme = lib.mkOption {
+    type = lib.types.str;
+    default = "Adwaita";
+    description = "Cursor theme for GNOME";
+  };
+
   config = lib.mkIf config.desktops.gnome.enable {
     services.xserver.enable = true;
   
@@ -32,13 +39,13 @@
       dconf
     ];
 
-    # env variable for cursor
-    environment.variables = {
-      XCURSOR_THEME = "Adwaita";
-      XCURSOR_SIZE = "24";
 
-      GSK_RENDERER = "gl";
-      WLR_NO_HARDWARE_CURSORS = "1";
+    # Define el cursor directamente con dconf
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        "cursor-theme" = config.desktops.gnome.cursorTheme;
+        "cursor-size" = 24;
+      };
     };
   };
 }
