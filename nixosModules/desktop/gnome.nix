@@ -23,10 +23,11 @@
     environment.systemPackages = with pkgs; [
       gnome-tweaks
       gnome-shell-extensions
+
       gnome-themes-extra
       adwaita-icon-theme
     ];
-    services.udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
+    services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
     # env variable for cursor
     environment.variables = {
