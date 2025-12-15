@@ -12,8 +12,8 @@
     ];
 
   # Que escritorio prefieres
-  desktops.kde.enable = true;
-  desktops.gnome.enable = false;
+  desktops.kde.enable = false;
+  desktops.gnome.enable = true;
   desktops.hyprland.enable = false;
 
   # MOVER LA CONFIGURACION DEN UN IMPORT O MODULO SEPARADO, QUIZAS QUE SEA EN EL USUARIO 
