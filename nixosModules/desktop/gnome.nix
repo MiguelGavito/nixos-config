@@ -12,14 +12,12 @@
   config = lib.mkIf config.desktops.gnome.enable {
     services.xserver.enable = true;
   
-    services.displayManager.gdm.enable = true;
-    # services.displayManager.gdm.wayland = false;
 
+    # services.displayManager.gdm.wayland = false;
+    services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
   
     programs.hyprland.enable = false;
-    
-    # save gnome settings
     programs.dconf.enable = true;
 
     # Portals para integración

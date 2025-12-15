@@ -16,6 +16,9 @@
   desktops.gnome.enable = true;
   desktops.hyprland.enable = false;
 
+  # cursor para cada escritorio
+  desktops.gnome.cursorTheme = "Adwaita";
+
   # MOVER LA CONFIGURACION DEN UN IMPORT O MODULO SEPARADO, QUIZAS QUE SEA EN EL USUARIO 
 
   # Enable touchpad support (enabled default in most desktopManager).
