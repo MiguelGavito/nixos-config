@@ -1,4 +1,4 @@
-{ config, lib, ... }: 
+{ config, lib, pkgs, inputs, ... }: 
 
 {
   options.desktops.hyprland.enable = lib.mkEnableOption "HYPRLAND Desktop";
@@ -8,8 +8,10 @@
     services.displayManager.sddm.enable = true; # or greetd
     services.desktopManager.plasma6.enable = false;
     services.desktopManager.gnome.enable = false;
+    
+    #a partir de aqui estoy riciendo hyprland
     programs.hyprland.enable = true;
-
+    programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
     # Portals para Wayland
     xdg.portal.enable = true;
