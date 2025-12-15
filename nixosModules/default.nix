@@ -10,5 +10,9 @@
     ./audio.nix
     ./display.nix
     ./bluetooth.nix
+    ./packages.nix
+    ./programs.nix
+    ./shell.nix
+    ./users.nix
   ];
 }
