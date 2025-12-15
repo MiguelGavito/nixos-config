@@ -12,9 +12,9 @@
     ];
 
   # Que escritorio prefieres
-  desktops.kde.enable = false;
+  desktops.kde.enable = true;
   desktops.gnome.enable = false;
-  desktops.hyprland.enable = true;
+  desktops.hyprland.enable = false;
 
   # cursor para cada escritorio
   desktops.gnome.cursorTheme = "Adwaita";
