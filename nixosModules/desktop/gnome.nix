@@ -6,6 +6,8 @@
     services.xserver.enable = true;
   
     services.displayManager.gdm.enable = true;
+    # services.displayManager.gdm.wayland = false;
+
     services.desktopManager.gnome.enable = true;
   
     programs.hyprland.enable = false;
@@ -34,6 +36,9 @@
     environment.variables = {
       XCURSOR_THEME = "Adwaita";
       XCURSOR_SIZE = "24";
+
+      GSK_RENDERER = "gl";
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
   };
 }
