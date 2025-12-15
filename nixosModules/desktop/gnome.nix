@@ -26,8 +26,9 @@
 
       gnome-themes-extra
       adwaita-icon-theme
+      gsettings-desktop-schemas
+      dconf
     ];
-    services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
     # env variable for cursor
     environment.variables = {
