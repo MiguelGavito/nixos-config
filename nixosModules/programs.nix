@@ -9,6 +9,9 @@
   # install vscode
   programs.vscode.enable = true;
 
+  # install kde for connect with phone  
+  programs.kdeconnect.enable = true;
+
   # Install Steam
   programs.steam = {
     enable = true;

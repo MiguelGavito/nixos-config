@@ -26,6 +26,7 @@
     ferdium # social
 
     tree # see tree folder terminal
-
+    
+    bottles # to play windows games with windows instalation
   ];
 }
