@@ -12,8 +12,8 @@
     ];
 
   # Que escritorio prefieres
-  desktops.kde.enable = true;
-  desktops.gnome.enable = false;
+  desktops.kde.enable = false;
+  desktops.gnome.enable = true;
   desktops.hyprland.enable = false;
 
   # cursor para cada escritorio

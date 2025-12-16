@@ -27,6 +27,14 @@
 
     tree # see tree folder terminal
     
+    lutris # same than the lower one
     bottles # to play windows games with windows instalation
+  
+    vlc #media 
+
+    htop # pc stats
+    bhop
+    
+    virtualbox
   ];
 }
