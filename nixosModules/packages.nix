@@ -33,7 +33,6 @@
     vlc #media 
 
     htop # pc stats
-    bhop
     
     virtualbox
   ];
