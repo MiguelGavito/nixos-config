@@ -11,3 +11,9 @@ require('telescope').setup({
 })
 
 require('telescope').load_extension('fzf')
+
+local builtin = require('telescope.builtin')
+-- command for search files short nvim
+vim.api.nvim_create_user_command('Te', function()
+  builtin.find_files()
+end, {})
