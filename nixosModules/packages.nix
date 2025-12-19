@@ -10,15 +10,10 @@
 
     #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    discord # social
-    libreoffice-still # documents
-    nextcloud-client # sync
     onedrive # sync
-    brave # navigator
-    blender # 3d model
+    nextcloud-client # sync
     gimp # image edition
     pavucontrol
-    audacity # audio
 
     libgccjit # compilador de c++
     #python315 # python 3.15
@@ -30,7 +25,6 @@
     lutris # same than the lower one
     bottles # to play windows games with windows instalation
   
-    vlc #media 
 
     htop # pc stats
     

@@ -3,6 +3,11 @@
     ./cliPrograms/git.nix
     ./cliPrograms/ssh.nix
     ./cliPrograms/nvim
-    # Aqui luego va lo de ./guiPrograms/firefox.nix etc
+
+    ./guiPrograms/blender.nix
+    ./guiPrograms/discord.nix
+    ./guiPrograms/brave.nix
+    ./guiPrograms/libreoffice.nix
+    ./guiPrograms/media.nix
   ];
 }
