@@ -22,9 +22,7 @@
 
     tree # see tree folder terminal
     
-    lutris # same than the lower one
-    bottles # to play windows games with windows instalation
-  
+ 
 
     htop # pc stats
     
