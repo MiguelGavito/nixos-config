@@ -13,5 +13,6 @@
     ./gaming/bottles.nix
     ./gaming/lutris.nix
     ./gaming/heroic.nix
-  ];
+    ./gaming/mods/deadlockModManager.nix    
+    ];
 }
