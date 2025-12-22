@@ -9,7 +9,7 @@
     ./guiPrograms/brave.nix
     ./guiPrograms/libreoffice.nix
     ./guiPrograms/media.nix
-  
+
     ./gaming/bottles.nix
     ./gaming/lutris.nix
     ./gaming/heroic.nix

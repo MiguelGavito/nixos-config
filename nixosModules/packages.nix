@@ -12,7 +12,6 @@
     wget
     onedrive # sync
     nextcloud-client # sync
-    gimp # image edition
     pavucontrol
 
     libgccjit # compilador de c++

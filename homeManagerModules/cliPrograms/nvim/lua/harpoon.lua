@@ -2,7 +2,7 @@ local harpoon = require("harpoon")
 harpoon:setup()
 
 -- Add current file to harpoon marks (is space with space)
-vim.keymap.set("n", " m", function() harpoon:list():add() end, { desc = "Harpoon add file" })
+vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end, { desc = "Harpoon add file" })
 
 -- Toggle harpoon menu
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })

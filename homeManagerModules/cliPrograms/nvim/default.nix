@@ -64,12 +64,14 @@ in
 
       {
         plugin = harpoon2;
-        config = toLuaFile ./lua/harpoon.lua;
       }
     ];
 
     extraLuaConfig = ''
-     ${builtins.readFile ./options.lua}
+      vim.g.mapleader = ' '
+      vim.g.maplocalleader = ' '
+      ${builtins.readFile ./options.lua}
+      ${builtins.readFile ./lua/harpoon.lua}
     '';
   };
 }
