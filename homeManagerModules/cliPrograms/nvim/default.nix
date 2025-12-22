@@ -73,14 +73,32 @@ in
       {
         plugin = undotree;
       }
+
+      {
+        plugin = toggleterm-nvim;
+      }
+
+      {
+        plugin = gitsigns-nvim;
+      }
+
+      {
+        plugin = which-key-nvim;
+      }
+
+      nvim-web-devicons
+      mini-nvim
     ];
 
     extraLuaConfig = ''
       vim.g.mapleader = ' '
       vim.g.maplocalleader = ' '
       ${builtins.readFile ./options.lua}
-      ${builtins.readFile ./lua/harpoon.lua} 
+      ${builtins.readFile ./lua/harpoon.lua}
       ${builtins.readFile ./lua/undotree.lua}
+      ${builtins.readFile ./lua/toggleterm.lua}
+      ${builtins.readFile ./lua/gitsigns.lua}
+      ${builtins.readFile ./lua/whichkey.lua}
     '';
   };
 }

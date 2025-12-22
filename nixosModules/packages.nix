@@ -26,5 +26,12 @@
     htop # pc stats
     
     virtualbox
+  
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.hack
   ];
 }
