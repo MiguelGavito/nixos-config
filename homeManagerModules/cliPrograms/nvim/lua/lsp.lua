@@ -27,22 +27,32 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 require('neodev').setup()
-require('lspconfig').lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-	root_dir = function()
-        return vim.loop.cwd()
-    end,
-	cmd = { "lua-lsp" },
+
+-- Lua LSP
+vim.lsp.config('lua_ls', {
+    cmd = { 'lua-language-server' },
+    root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', 'selene.toml', 'selene.yml', '.git' },
+    filetypes = { 'lua' },
     settings = {
         Lua = {
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
         },
     }
-}
+})
 
-require('lspconfig').nil_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+-- Nix LSP
+vim.lsp.config('nil_ls', {
+    cmd = { 'nil' },
+    root_markers = { 'flake.nix', '.git' },
+    filetypes = { 'nix' },
+})
+
+-- Auto-start LSP
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'lua', 'nix' },
+    callback = function(args)
+        vim.lsp.enable({ 'lua_ls', 'nil_ls' })
+        on_attach(nil, args.buf)
+    end,
+})
