@@ -61,10 +61,15 @@ in
         ]));
         config = toLuaFile ./lua/treesitter.lua;
       }
+
+      {
+        plugin = harpoon2;
+        config = toLuaFile ./lua/harpoon.lua;
+      }
     ];
 
     extraLuaConfig = ''
-      ${builtins.readFile ./options.lua}
+     ${builtins.readFile ./options.lua}
     '';
   };
 }
