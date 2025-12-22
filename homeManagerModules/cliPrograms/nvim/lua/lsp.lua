@@ -48,6 +48,8 @@ vim.lsp.config('nil_ls', {
     filetypes = { 'nix' },
 })
 
+-- latter add other LSP, python, cpp, maybe rust, React, Typescript
+
 -- Auto-start LSP
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'lua', 'nix' },

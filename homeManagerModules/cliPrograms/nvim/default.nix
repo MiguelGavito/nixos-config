@@ -65,13 +65,22 @@ in
       {
         plugin = harpoon2;
       }
+
+      {
+        plugin = vim-fugitive;
+      }
+
+      {
+        plugin = undotree;
+      }
     ];
 
     extraLuaConfig = ''
       vim.g.mapleader = ' '
       vim.g.maplocalleader = ' '
       ${builtins.readFile ./options.lua}
-      ${builtins.readFile ./lua/harpoon.lua}
+      ${builtins.readFile ./lua/harpoon.lua} 
+      ${builtins.readFile ./lua/undotree.lua}
     '';
   };
 }
