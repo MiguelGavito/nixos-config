@@ -15,6 +15,18 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = false,  -- Show hidden files
   },
+  on_attach = function(bufnr)
+    local api = require('nvim-tree.api')
+  
+    -- l expands folder
+    vim.keymap.set('n', 'l', api.node.open.edit, { buffer = bufnr, desc = 'Expand folder' })
+  
+    -- Enter (CR) enters/changes root to folder
+    vim.keymap.set('n', 'n', api.tree.change_root_to_node, { buffer = bufnr, desc = 'Enter folder' })
+  
+    -- h exits/collapses
+    vim.keymap.set('n', 'h', api.node.navigate.parent_close, { buffer = bufnr, desc = 'Exit folder' })
+  end
 })
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
