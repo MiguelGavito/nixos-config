@@ -88,6 +88,27 @@ in
 
       nvim-web-devicons
       mini-nvim
+    
+      {
+        plugin = comment-nvim;
+      }
+
+      # {
+      #   plugin = oil-nvim;
+      # }
+
+      {
+        plugin = bufferline-nvim;
+      }
+
+      {
+        plugin = nvim-tree-lua;
+      }
+
+      {
+        plugin = lualine-nvim;
+      }
+
     ];
 
     extraLuaConfig = ''
@@ -99,7 +120,13 @@ in
       ${builtins.readFile ./lua/toggleterm.lua}
       ${builtins.readFile ./lua/gitsigns.lua}
       ${builtins.readFile ./lua/whichkey.lua}
+      ${builtins.readFile ./lua/comment.lua}
+      ${builtins.readFile ./lua/bufferline.lua}
+      ${builtins.readFile ./lua/nvim-tree.lua}
+      ${builtins.readFile ./lua/lualine.lua}
     '';
+      
+    # ${builtins.readFile ./lua/oil.lua}
   };
 }
 
