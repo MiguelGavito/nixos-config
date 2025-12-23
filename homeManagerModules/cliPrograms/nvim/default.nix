@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{  pkgs, ... }:
 
 let
   toLua = str: "lua << EOF\n${str}\nEOF\n";
