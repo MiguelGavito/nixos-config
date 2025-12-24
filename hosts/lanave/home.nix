@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
+  
   imports = [
-    ../../homeManagerModules
+    ../../homeManagerModules/cliPrograms/git.nix
+    ../../homeManagerModules/cliPrograms/ssh.nix
+    ../../homeManagerModules/cliPrograms/nvim  
   ];
 
   home.username = "mariolo";
