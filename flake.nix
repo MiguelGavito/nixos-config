@@ -12,7 +12,9 @@
   outputs = { nixpkgs, home-manager, ... }: {
     nixosConfigurations.elnavio = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit nixpkgs; };
       modules = [
+        { nixpkgs.config.allowUnfree = true; }
         ./hosts/elnavio/configuration.nix
 
         home-manager.nixosModules.home-manager

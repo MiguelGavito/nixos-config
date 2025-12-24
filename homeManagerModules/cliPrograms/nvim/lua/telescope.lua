@@ -17,3 +17,21 @@ local builtin = require('telescope.builtin')
 vim.api.nvim_create_user_command('Te', function()
   builtin.find_files()
 end, {})
+
+-- Search Files   
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+
+-- Search text on project      
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Find text (grep)' })
+
+-- Search on actual buffer
+vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, { desc = 'Find in buffer' })
+
+-- Search buffers
+vim.keymap.set('n', '<leader>bb', builtin.buffers, { desc = 'Find buffers' })
+
+-- Search help 
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find help' })
+
+-- Search commands
+vim.keymap.set('n', '<leader>fc', builtin.command_history, { desc = 'Command history' })
