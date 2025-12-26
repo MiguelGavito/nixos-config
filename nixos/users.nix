@@ -7,9 +7,6 @@
     isNormalUser = true;
     description = "Miguel Gavito";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      #thunderbird
-    ];
+
   };
 }
