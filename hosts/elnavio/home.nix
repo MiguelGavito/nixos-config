@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../homeManagerModules
+    ../../home
   ];
   
   dconf.settings = {

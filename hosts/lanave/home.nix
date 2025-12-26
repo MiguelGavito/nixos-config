@@ -3,9 +3,9 @@
   nixpkgs.config.allowUnfree = true;
   
   imports = [
-    ../../homeManagerModules/cliPrograms/git.nix
-    ../../homeManagerModules/cliPrograms/ssh.nix
-    ../../homeManagerModules/cliPrograms/nvim  
+    ../../home/cliPrograms/git.nix
+    ../../home/cliPrograms/ssh.nix
+    ../../home/cliPrograms/nvim  
   ];
 
   home.username = "mariolo";

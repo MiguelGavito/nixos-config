@@ -26,7 +26,8 @@
     htop # pc stats
     
     virtualbox
-  
+    
+    file # add later to shell config or something
   ];
 
   fonts.packages = with pkgs; [

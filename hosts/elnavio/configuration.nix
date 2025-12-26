@@ -8,8 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../nixosModules/default.nix
+      ../../nixos/default.nix
     ];
+
+  # What shell is used systemwide
+  programs.zsh.enable = true;
 
   # Que escritorio prefieres
   desktops.kde.enable = false;

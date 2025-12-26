@@ -3,6 +3,7 @@
     ./cliPrograms/git.nix
     ./cliPrograms/ssh.nix
     ./cliPrograms/nvim
+    ./cliPrograms/shell.nix
 
     ./guiPrograms/blender.nix
     ./guiPrograms/discord.nix

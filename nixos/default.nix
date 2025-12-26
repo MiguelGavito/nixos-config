@@ -12,7 +12,6 @@
     ./bluetooth.nix
     ./packages.nix
     ./programs.nix
-    ./shell.nix
     ./users.nix
     ./firewall.nix
     ./ssh.nix
