@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 {
   options.desktops.niri.enable = lib.mkEnableOption "Niri Desktop";
@@ -9,13 +9,33 @@
     services.desktopManager.plasma6.enable = false;
     services.desktopManager.gnome.enable = false;
 
-    # Install compositor and essentials
+    # Compositor y esenciales mínimos
+    programs.niri.enable = true;
+    
+    # Force Niri to use AMD iGPU (not NVIDIA)
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      __GLX_VENDOR_LIBRARY_NAME = "amd";
+      DRI_PRIME = "0"; # Use AMD iGPU (bus 1:0:0)
+    };
+
     environment.systemPackages = with pkgs; [
       niri
-
+      wofi
+      kitty
+      swaylock
+      swayidle
+      mako
+      swaybg
+      xwayland-satellite
+      wl-clipboard
     ];
+
+    security.pam.services.swaylock = {};
 
     # Wayland portals
     xdg.portal.enable = true;
+    xdg.portal.wlr.enable = true;
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 }

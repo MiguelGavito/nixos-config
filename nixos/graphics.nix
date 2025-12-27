@@ -17,10 +17,14 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
+    # Power management for hybrid graphics
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+
     prime = {
       offload = {
         enable = true;
-	enableOffloadCmd = true;
+	      enableOffloadCmd = true;
       };
       # Use the Bus IDs
       amdgpuBusId = "PCI:1:0:0";
