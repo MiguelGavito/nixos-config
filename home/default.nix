@@ -7,7 +7,8 @@
     ./cliPrograms/file-utils.nix
     ./cliPrograms/monitoring.nix
     ./cliPrograms/networking.nix
-    
+    ./cliPrograms/term-defaults.nix
+
     ./guiPrograms/blender.nix
     ./guiPrograms/discord.nix
     ./guiPrograms/brave.nix
@@ -26,6 +27,10 @@
     ./gaming/heroic.nix
     # ./gaming/steam.nix
     ./gaming/mods/deadlockModManager.nix   
+
+    ./desktop/hyprland.nix
+    ./desktop/niri.nix
+    ./desktop/autostart.nix
 
     ./sync/nextcloud.nix
     ./sync/onedrive.nix

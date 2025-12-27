@@ -33,6 +33,8 @@
   };
 
   # Load the nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "modesetting" "nvidia"];
-
+  services.xserver.videoDrivers = 
+    if (config.desktops.hyprland.enable || config.desktops.niri.enable)
+    then [ "amdgpu" ]      # Solo AMD para Wayland compositors
+    else [ "modesetting" "nvidia" ];  # AMD+NVIDIA para GNOME/KDE
 }

@@ -1,0 +1,16 @@
+
+{
+  // Minimal Waybar configuration: center clock, right battery/audio/network
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "modules-left": ["workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "backlight", "battery", "network"],
+
+  "clock": {"format": "%a %b %d, %H:%M"},
+  "battery": {"format": "{capacity}%", "states": {"warning": 30, "critical": 15}},
+  "backlight": {"device": "intel_backlight", "format": "{percent}%"},
+  "network": {"format-wifi": " {essid} {signal}%", "format-ethernet": " {ip}", "format-disconnected": "⨯"},
+  "pulseaudio": {"format": "{volume}%", "format-muted": "muted"}
+}

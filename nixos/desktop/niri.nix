@@ -29,7 +29,24 @@
       swaybg
       xwayland-satellite
       wl-clipboard
+
+      # System controls
+      pamixer
+      brightnessctl
+      playerctl
+
+      # Screenshots
+      grim
+      slurp
+
+      # Bar
+      waybar
     ];
+
+    # kitty as default terminal
+    environment.sessionVariables = {
+      TERMINAL = "kitty";
+    };
 
     security.pam.services.swaylock = {};
 
