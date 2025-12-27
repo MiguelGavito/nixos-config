@@ -15,6 +15,13 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = false,  -- Show hidden files
   },
+  actions = {
+    open_file = {
+      resize_window = true,
+      -- keep the tree open after opening a file
+      quit_on_open = false,
+    },
+  },
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
  
@@ -42,6 +49,8 @@ require("nvim-tree").setup({
     vim.keymap.set('n', 'R', api.tree.reload, opts('Refresh'))
     vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
     vim.keymap.set('n', 'g?', api.tree.toggle_help, opts('Help'))
+    
+    vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open (DoubleClick)'))
   end,
 })
 

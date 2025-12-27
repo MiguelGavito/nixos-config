@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, lib, ... }:
 
 {  
   # Set your time zone.
-  time.timeZone = "America/Monterrey";
+  time.timeZone = lib.mkDefault "UTC";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 }

@@ -10,6 +10,10 @@
       ./hardware-configuration.nix
       ../../nixos/default.nix
     ];
+    
+  networking.hostName = "elnavio";
+  time.timeZone = "America/Monterrey";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # What shell is used systemwide
   programs.zsh.enable = true;
