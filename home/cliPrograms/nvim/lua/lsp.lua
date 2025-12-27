@@ -27,11 +27,10 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 require('neodev').setup()
 
-local lspconfig = require('lspconfig')
-
--- Lua LSP
-lspconfig.lua_ls.setup({
+-- Lua LSP (native API)
+vim.lsp.config('lua_ls', {
   cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -41,23 +40,25 @@ lspconfig.lua_ls.setup({
   },
 })
 
--- Nix LSP
-lspconfig.nil_ls.setup({
+-- Nix LSP (native API)
+vim.lsp.config('nil_ls', {
   cmd = { 'nil' },
+  filetypes = { 'nix' },
   capabilities = capabilities,
 })
 
--- latter add other LSP, python, cpp, maybe rust, React, Typescript
-
--- C/C++ LSP (clangd)
-lspconfig.clangd.setup({
+-- C/C++ LSP (clangd, native API)
+vim.lsp.config('clangd', {
   cmd = { 'clangd' },
+  filetypes = { 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
   capabilities = capabilities,
 })
 
--- Attach buffer keymaps on LSP attach
-vim.api.nvim_create_autocmd('LspAttach', {
+-- Auto-start LSP on filetype and attach mappings
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
   callback = function(args)
+    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' })
     on_attach(nil, args.buf)
   end,
 })
