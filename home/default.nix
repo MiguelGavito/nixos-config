@@ -18,6 +18,8 @@
     ./guiPrograms/firefox.nix
     ./guiPrograms/vscode.nix
     ./guiPrograms/kde-apps.nix
+    ./guiPrograms/wofi.nix
+    ./guiPrograms/kitty.nix
 
     ./gaming/bottles.nix
     ./gaming/lutris.nix

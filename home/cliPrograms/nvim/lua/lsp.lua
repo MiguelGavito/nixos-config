@@ -50,11 +50,19 @@ vim.lsp.config('nil_ls', {
 
 -- latter add other LSP, python, cpp, maybe rust, React, Typescript
 
+-- C++ LSP (clangd)
+vim.lsp.config('clangd', {
+    cmd = { 'clangd' },
+    root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
+    filetypes = { 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
+    capabilities = capabilities,
+})
+
 -- Auto-start LSP
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'lua', 'nix' },
+  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
     callback = function(args)
-        vim.lsp.enable({ 'lua_ls', 'nil_ls' })
+    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' })
         on_attach(nil, args.buf)
     end,
 })

@@ -15,7 +15,8 @@ in
     extraPackages = with pkgs; [
       lua-language-server
       nil
-      
+      clang-tools
+
       #clipboard
       wl-clipboard
       xclip

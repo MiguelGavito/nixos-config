@@ -22,6 +22,7 @@
   desktops.kde.enable = false;
   desktops.gnome.enable = true;
   desktops.hyprland.enable = false;
+  desktops.niri.enable = false;
 
   # cursor para cada escritorio
   desktops.gnome.cursorTheme = "Adwaita";
