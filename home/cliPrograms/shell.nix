@@ -15,7 +15,7 @@
     # check later if is better to unify the file where the aliases are configured
     shellAliases = {
       ll = "ls -l";
-      nixc = "cd ~/Dev/nixos-config/";
+      nixc = "cd ~/Dev/nixos-config";
       #rm = "rm -i"; # remove with and question to be secure
       #update = "sudo nixos-rebuild switch --flake .\#elnavio # checar luego como poner input aqui
     };
