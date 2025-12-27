@@ -59,6 +59,8 @@ in
         plugin = (nvim-treesitter.withPlugins (p: [
           p.tree-sitter-lua
           p.tree-sitter-nix
+          p.tree-sitter-c
+          p.tree-sitter-cpp
         ]));
         config = toLuaFile ./lua/treesitter.lua;
       }

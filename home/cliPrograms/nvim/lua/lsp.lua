@@ -23,46 +23,41 @@ local on_attach = function(_, bufnr)
   end, {})
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require('neodev').setup()
 
+local lspconfig = require('lspconfig')
+
 -- Lua LSP
-vim.lsp.config('lua_ls', {
-    cmd = { 'lua-language-server' },
-    root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', 'selene.toml', 'selene.yml', '.git' },
-    filetypes = { 'lua' },
-    settings = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
-    }
+lspconfig.lua_ls.setup({
+  cmd = { 'lua-language-server' },
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    },
+  },
 })
 
 -- Nix LSP
-vim.lsp.config('nil_ls', {
-    cmd = { 'nil' },
-    root_markers = { 'flake.nix', '.git' },
-    filetypes = { 'nix' },
+lspconfig.nil_ls.setup({
+  cmd = { 'nil' },
+  capabilities = capabilities,
 })
 
 -- latter add other LSP, python, cpp, maybe rust, React, Typescript
 
--- C++ LSP (clangd)
-vim.lsp.config('clangd', {
-    cmd = { 'clangd' },
-    root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
-    filetypes = { 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
-    capabilities = capabilities,
+-- C/C++ LSP (clangd)
+lspconfig.clangd.setup({
+  cmd = { 'clangd' },
+  capabilities = capabilities,
 })
 
--- Auto-start LSP
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
-    callback = function(args)
-    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' })
-        on_attach(nil, args.buf)
-    end,
+-- Attach buffer keymaps on LSP attach
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    on_attach(nil, args.buf)
+  end,
 })
