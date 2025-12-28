@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: 
+{ config, lib, pkgs, hyprland, ... }: 
 
 {
   options.desktops.hyprland.enable = lib.mkEnableOption "HYPRLAND Desktop";
@@ -11,7 +11,7 @@
     
     #a partir de aqui estoy riciendo hyprland
     programs.hyprland.enable = true;
-    programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    programs.hyprland.package = hyprland.packages."${pkgs.system}".hyprland;
 
     # Force Hyprland to use AMD iGPU (not NVIDIA)
     environment.sessionVariables = {
@@ -20,12 +20,10 @@
       DRI_PRIME = "0"; # Use AMD iGPU (bus 1:0:0)
     };
 
-    # Portals para Wayland
+    # Portals para Wayland (hyprland portal auto-installed by programs.hyprland.enable)
     xdg.portal.enable = true;
-    xdg.portal.wlr.enable = true;
     xdg.portal.extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
     ];
 
     # Paquetes mínimos para operar con teclado
@@ -38,4 +36,3 @@
     ];
   };
 }
-

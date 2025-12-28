@@ -25,7 +25,7 @@
     ./gaming/bottles.nix
     ./gaming/lutris.nix
     ./gaming/heroic.nix
-    # ./gaming/steam.nix
+    ./gaming/steam.nix
     ./gaming/mods/deadlockModManager.nix   
 
     ./desktop/hyprland.nix

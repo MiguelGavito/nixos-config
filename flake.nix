@@ -9,10 +9,10 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
+  outputs = { nixpkgs, home-manager, hyprland, ... }: {
     nixosConfigurations.elnavio = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit nixpkgs; };
+      specialArgs = { inherit nixpkgs hyprland; };
       modules = [
         { nixpkgs.config.allowUnfree = true; }
         ./hosts/elnavio/configuration.nix
