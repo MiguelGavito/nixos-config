@@ -17,6 +17,7 @@
     ./guiPrograms/audio.nix
     ./guiPrograms/social.nix
     ./guiPrograms/firefox.nix
+    ./guiPrograms/dolphin.nix
     ./guiPrograms/vscode.nix
     ./guiPrograms/kde-apps.nix
     ./guiPrograms/wofi.nix

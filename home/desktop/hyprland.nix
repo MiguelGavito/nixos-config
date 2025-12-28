@@ -64,6 +64,7 @@ bind = $mainMod, Q, killactive
 bind = $mainMod, V, togglefloating
 bind = $mainMod, F, fullscreen
 bind = $mainMod, M, exit
+bind = $mainMod, ESCAPE, exec, swaylock
 
 # Enfoque
 bind = $mainMod, H, movefocus, l
