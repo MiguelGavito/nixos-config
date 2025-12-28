@@ -17,6 +17,9 @@
       gamescope  # Valve's microcompositor for gaming
     ]; 
     
+    extest.enable = true;
+
+
     # Enable gamescope session (optional, can wrap Steam)
     gamescopeSession.enable = true;
   };

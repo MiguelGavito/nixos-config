@@ -5,9 +5,12 @@
   config = lib.mkIf config.desktops.hyprland.enable {
 
     services.xserver.enable = true;
-    services.displayManager.sddm.enable = true; # or greetd
-    services.desktopManager.plasma6.enable = false;
-    services.desktopManager.gnome.enable = false;
+    
+    #services.displayManager.sddm.enable = false; # or greetd
+    services.displayManager.gdm.enable = true;
+
+    #services.desktopManager.plasma6.enable = false;
+    #services.desktopManager.gnome.enable = false;
     
     #a partir de aqui estoy riciendo hyprland
     programs.hyprland.enable = true;
@@ -18,6 +21,7 @@
       WLR_NO_HARDWARE_CURSORS = "1";
       __GLX_VENDOR_LIBRARY_NAME = "amd";
       DRI_PRIME = "0"; # Use AMD iGPU (bus 1:0:0)
+
     };
 
     # Portals para Wayland (hyprland portal auto-installed by programs.hyprland.enable)

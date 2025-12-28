@@ -21,8 +21,11 @@
   # Que escritorio prefieres
   desktops.kde.enable = false;
   desktops.gnome.enable = true;
-  desktops.hyprland.enable = false;
-  desktops.niri.enable = false;
+  desktops.hyprland.enable = true;
+  desktops.niri.enable = true;
+
+  services.displayManager.gdm.enable = true;
+  #services.displayManager.sddm.enable = false;
 
   # cursor para cada escritorio
   desktops.gnome.cursorTheme = "Adwaita";

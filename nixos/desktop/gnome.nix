@@ -16,8 +16,7 @@
     # services.displayManager.gdm.wayland = false;
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
-  
-    programs.hyprland.enable = false;
+     
     programs.dconf.enable = true;
 
     # Portals para integración
