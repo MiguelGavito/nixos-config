@@ -8,6 +8,10 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11"; # master / unstable  # add /nixos-25.11 if want stable
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;  # Es solo un archivo, no un flake
+    };
   };
 
   outputs = inputs @ {

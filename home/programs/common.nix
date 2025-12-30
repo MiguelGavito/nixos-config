@@ -25,7 +25,7 @@
     obsidian
 
     # IDE
-    insomnia
+    # insomnia
 
     # cloud native
     docker-compose
