@@ -5,7 +5,7 @@
     audacity # audio
     vlc #media 
     gimp # image edition
-    obs-studio # recorder
+    # obs-studio # recorder
 
 
     ];

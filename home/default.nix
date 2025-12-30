@@ -1,11 +1,11 @@
 {
   imports = [
-    ./cliPrograms/git.nix
+    # ./cliPrograms/git.nix
     ./cliPrograms/ssh.nix
     ./cliPrograms/nvim
     ./cliPrograms/shell.nix
     ./cliPrograms/file-utils.nix
-    ./cliPrograms/monitoring.nix
+    # ./cliPrograms/monitoring.nix
     ./cliPrograms/networking.nix
     ./cliPrograms/term-defaults.nix
 
@@ -14,7 +14,7 @@
     ./guiPrograms/brave.nix
     ./guiPrograms/libreoffice.nix
     ./guiPrograms/media.nix
-    ./guiPrograms/audio.nix
+    # ./guiPrograms/audio.nix
     ./guiPrograms/social.nix
     ./guiPrograms/firefox.nix
     ./guiPrograms/dolphin.nix

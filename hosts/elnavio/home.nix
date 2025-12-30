@@ -10,10 +10,18 @@
     ../../home/programs
   ];
 
+ # Force Home Manager to overwrite existing files on first run
+  xdg.configFile."mimeapps.list".force = true;
+  xdg.configFile."user-dirs.dirs".force = true;
+  home.file.".mozilla/firefox/profiles.ini".force = true;
+
   programs.git.settings = {
     user.name = "MiguelGavito";
     user.email = "mgavitogzz@gmail.com";
   };
+
+
+  # all of this down is just settings on gnome
   
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -41,7 +49,6 @@
   # Ensure icon fonts for Waybar (Font Awesome/Nerd Fonts)
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
     font-awesome
     adwaita-icon-theme
   ];

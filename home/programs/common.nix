@@ -32,9 +32,9 @@
     kubectl
 
     nodejs
-    nodePackages.npm
-    nodePackages.pnpm
-    yarn
+    # nodePackages.npm
+    # nodePackages.pnpm
+    # yarn
 
     # db related
     dbeaver-bin
