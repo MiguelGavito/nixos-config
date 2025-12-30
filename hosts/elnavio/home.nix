@@ -7,6 +7,7 @@
     ../../home/core.nix
 
     ../../home/shell
+    ../../home/programs
   ];
 
   programs.git.settings = {
