@@ -13,7 +13,7 @@
       background_blur = 5;
 
       cursor_shape = "block";
-      cursor_blink_interval = 0;
+      cursor_blink_interval = 1;
     };
   };
 }

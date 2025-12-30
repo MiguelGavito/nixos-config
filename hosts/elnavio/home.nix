@@ -3,7 +3,16 @@
 {
   imports = [
     ../../home
+
+    ../../home/core.nix
+
+    ../../home/shell
   ];
+
+  programs.git = {
+    userName = "MiguelGavito";
+    userEmail = "mgavitogzz@gmail.com";
+  };
   
   dconf.settings = {
     "org/gnome/desktop/interface" = {
