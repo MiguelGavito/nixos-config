@@ -6,6 +6,8 @@
     vlc #media 
     gimp # image edition
     obs-studio # recorder
+
+
     ];
 }
 

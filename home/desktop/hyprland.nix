@@ -29,13 +29,12 @@ general {
   layout = dwindle
 }
 
-# Decoración (sin opciones antiguas de sombras)
+# Decoración (sin opciones atiguas de sombras)
 decoration {
-  rounding = 6
+  rounding = 4
   blur {
-    enabled = true
-    size = 6
-    passes = 2
+    enabled = false
+    
   }
 }
 
