@@ -5,10 +5,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; # unstable change to nixos-25.11 if want stable
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.11"; # master / unstable  # add /nixos-25.11 if want stable
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager/release-25.11"; # master / unstable  # add /nixos-25.11 if want stable
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
@@ -48,6 +46,15 @@
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
         ./hosts/lanave/home.nix
+      ];
+    };
+
+      # later check if is usefull or if it cause problems
+    homeConfigurations.miguelagg = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = inputs // { username = "miguelagg"; };
+      modules = [
+        ./hosts/elnavio/home.nix
       ];
     };
   };

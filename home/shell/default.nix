@@ -7,7 +7,9 @@ in
 {
   imports = [
 
+    # ./nushell
     ./common.nix
+    ./starship.nix
     ./terminals.nix
   ];
 
