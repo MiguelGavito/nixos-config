@@ -9,9 +9,9 @@
     ../../home/shell
   ];
 
-  programs.git = {
-    userName = "MiguelGavito";
-    userEmail = "mgavitogzz@gmail.com";
+  programs.git.settings = {
+    user.name = "MiguelGavito";
+    user.email = "mgavitogzz@gmail.com";
   };
   
   dconf.settings = {
