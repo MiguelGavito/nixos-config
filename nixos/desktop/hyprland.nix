@@ -37,6 +37,18 @@
       waybar
       hyprpaper
       wl-clipboard
+
+      # block screen
+      swaylock
+      pamixer
+
+
+      brightnessctl
+      playerctl
+      
+      
+      grim
+      slurp
     ];
   };
 }

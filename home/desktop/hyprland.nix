@@ -10,7 +10,10 @@ monitor=,preferred,auto,1
 
 # Entrada
 input {
-  kb_layout = us
+  # Multiple layouts: US, Spanish, Japanese
+  kb_layout = us,es,jp
+  # Switch layouts with Alt+Shift (grp:alt_shift_toggle)
+  kb_options = grp:alt_shift_toggle
   follow_mouse = 1
   touchpad {
     natural_scroll = yes
@@ -63,6 +66,7 @@ bind = $mainMod, Q, killactive
 bind = $mainMod, V, togglefloating
 bind = $mainMod, F, fullscreen
 bind = $mainMod, M, exit
+bind = $mainMod, ESCAPE, exec, swaylock
 
 # Enfoque
 bind = $mainMod, H, movefocus, l

@@ -26,5 +26,14 @@
   };
 
   home.stateVersion = "25.11";
+
+
+  # Ensure icon fonts for Waybar (Font Awesome/Nerd Fonts)
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    font-awesome
+    adwaita-icon-theme
+  ];
 }
 

@@ -8,7 +8,8 @@
     input {
         keyboard {
             xkb {
-                layout "us"
+                layout "us,es,jp"
+                options "grp:alt_shift_toggle"
             }
         }
         touchpad {
@@ -48,7 +49,8 @@
         Mod+L { focus-column-right; }
         Mod+J { focus-window-down; }
         Mod+K { focus-window-up; }
-        
+        Mod+F { fullscreen-window; }
+
         Mod+Shift+H { move-column-left; }
         Mod+Shift+L { move-column-right; }
         Mod+Shift+J { move-window-down; }

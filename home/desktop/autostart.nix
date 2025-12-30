@@ -20,6 +20,16 @@
     Install = { WantedBy = [ "graphical-session.target" ]; };
   };
 
+  # NetworkManager applet for WiFi GUI
+  systemd.user.services.nm-applet = {
+    Unit = { Description = "NetworkManager Applet"; After = [ "graphical-session.target" "network.target" ]; }; 
+    Service = { 
+      ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable";
+      Restart = "on-failure";
+      RestartSec = 2;
+    }; 
+    Install = { WantedBy = [ "graphical-session.target" ]; };
+  };
   # Deploy Waybar config
   xdg.configFile."waybar/config" = {
     force = true;
