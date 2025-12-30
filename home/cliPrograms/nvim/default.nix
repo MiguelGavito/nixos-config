@@ -50,7 +50,7 @@ in
 
       {
         plugin = telescope-nvim;
-        config = toLuaFile ./lua/telescope.lua;
+        # config = toLuaFile ./lua/telescope.lua;
       }
 
       telescope-fzf-native-nvim
@@ -119,6 +119,8 @@ in
       vim.g.maplocalleader = ' '
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./lua/harpoon.lua}
+      ${builtins.readFile ./lua/telescope.lua}
+      ${builtins.readFile ./lua/fugitive.lua}  
       ${builtins.readFile ./lua/undotree.lua}
       ${builtins.readFile ./lua/toggleterm.lua}
       ${builtins.readFile ./lua/gitsigns.lua}
