@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../nixos/default.nix
+      ../../modules/default.nix
     ];
     
   networking.hostName = "elnavio";

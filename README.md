@@ -1,3 +1,23 @@
+# NixOS configuration
+
+##philosophy:
+
+This github repository (temporary private before i learn how to secure all information) need to follow this ideas: MODULARITY, PORPUSE, EXPANDIBLE.
+
+This repository as well is a personal proyect where i learn how to configure all of it, it may have error but the objetive is to learn and solve them.
+
+## Desktop Desing and workflow rules
+
+The workflow design need to follow this rules:
+- Simple to use
+- Minimalist
+- Efficient
+
+the principal idea is to config all the system to need only the keyboard to work, this may need more use of terminal, programs as vim and emacs and similar things.
+
+
+# KEYBINDINGS
+
 
 # Atajos de Teclado - Window Managers
 
