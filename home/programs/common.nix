@@ -16,6 +16,8 @@
     ripgrep
     yq-go # https://github.com/mikefarah/yq
     htop
+    file
+    tree 
 
     # misc
     libnotify

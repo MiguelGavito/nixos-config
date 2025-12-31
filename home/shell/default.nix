@@ -6,12 +6,13 @@ let
 in
 {
   imports = [
-
+    ./env.nix
     ./nushell
     ./common.nix
     ./starship.nix
     ./terminals.nix
     ./zsh.nix
+    ./env.nix
   ];
 
   # add envirnment variables

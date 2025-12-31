@@ -1,13 +1,6 @@
 {
   imports = [
-    # ./cliPrograms/git.nix
-    ./cliPrograms/ssh.nix
-    ./cliPrograms/nvim
-    ./cliPrograms/shell.nix
-    ./cliPrograms/file-utils.nix
-    # ./cliPrograms/monitoring.nix
-    ./cliPrograms/networking.nix
-    ./cliPrograms/term-defaults.nix
+    ./ide/nvim
 
     ./programs
 

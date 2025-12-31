@@ -1,4 +1,5 @@
 
+
 { config, lib, pkgs, ... }:
 {
   # Session-wide defaults for terminal/editor and Steam Wayland env

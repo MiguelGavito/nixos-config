@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    wget
+  ];
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
