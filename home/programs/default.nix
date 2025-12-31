@@ -7,5 +7,7 @@
     ./xdg.nix
     ./networking.nix
     ./gaming.nix
+    ./productivity.nix
+    ./devtools.nix
   ];
 }

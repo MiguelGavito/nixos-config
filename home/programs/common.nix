@@ -25,9 +25,6 @@
     xdg-utils
     graphviz
 
-    # productivity
-    obsidian
-
     # file 
     nautilus
     file-roller
@@ -40,11 +37,6 @@
     # art design
     blender
     
-
-
-    # office work
-    libreoffice-still # documents
-     
     # IDE
     # insomnia
 

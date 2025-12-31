@@ -10,10 +10,5 @@
     ./desktop/niri.nix
     ./desktop/autostart.nix
 
-    ./sync/nextcloud.nix
-    ./sync/onedrive.nix
-
-    ./devTools/cpp.nix
-    ./devTools/virtualization.nix
     ];
 }
