@@ -11,6 +11,7 @@ in
     ./common.nix
     ./starship.nix
     ./terminals.nix
+    ./zsh.nix
   ];
 
   # add envirnment variables

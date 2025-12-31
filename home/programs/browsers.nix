@@ -18,4 +18,7 @@
       profiles.${username} = {};
     };
   };
+  home.packages = with pkgs; [
+    brave # navigator
+  ];
 }

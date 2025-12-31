@@ -4,7 +4,9 @@
   catppuccin-bat,
   ...
 }: {
-  home.packages = with pkgs; [
+
+
+  home.packages = (with pkgs; [
     # archives
     zip
     unzip
@@ -24,6 +26,23 @@
     # productivity
     obsidian
 
+    # file 
+    nautilus
+    file-roller
+
+    # social
+    discord
+    ferdium
+
+    
+    # art design
+    blender
+    
+
+
+    # office work
+    libreoffice-still # documents
+     
     # IDE
     # insomnia
 
@@ -40,7 +59,15 @@
     dbeaver-bin
     mycli
     pgcli
-  ];
+  ])
+  ++
+  (with pkgs.kdePackages; [
+    kate
+    dolphin
+    ark
+    kio-extras
+    ffmpegthumbs
+  ]);
 
   programs = {
     tmux = {

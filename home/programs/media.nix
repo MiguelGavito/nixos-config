@@ -15,6 +15,11 @@
     pulsemixer
     # images
     imv
+    # edicion audio
+    audacity
+    vlc
+    #edition images
+    gimp
   ];
 
   programs = {

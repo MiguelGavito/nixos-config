@@ -9,19 +9,7 @@
     ./cliPrograms/networking.nix
     ./cliPrograms/term-defaults.nix
 
-    ./guiPrograms/blender.nix
-    ./guiPrograms/discord.nix
-    ./guiPrograms/brave.nix
-    ./guiPrograms/libreoffice.nix
-    ./guiPrograms/media.nix
-    # ./guiPrograms/audio.nix
-    ./guiPrograms/social.nix
-    ./guiPrograms/firefox.nix
-    ./guiPrograms/dolphin.nix
-    ./guiPrograms/vscode.nix
-    ./guiPrograms/kde-apps.nix
-    ./guiPrograms/wofi.nix
-    # ./guiPrograms/kitty.nix
+    ./programs
 
     ./gaming/bottles.nix
     ./gaming/lutris.nix
