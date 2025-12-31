@@ -24,6 +24,8 @@
       "locked": "",
       "unlocked": ""
 
+    }`
+  },
   "battery": {
     "format": "{icon} {capacity}%",
     "format-icons": ["","","","",""],

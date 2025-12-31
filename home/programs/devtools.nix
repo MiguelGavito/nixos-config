@@ -7,6 +7,7 @@
     clang
     clang-tools
     virtualbox
+    gnumake
   ];
 }
 

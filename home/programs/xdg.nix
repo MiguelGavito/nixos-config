@@ -1,5 +1,5 @@
 {config, ...}: let
-  browser = ["firefox.desktop"];
+  browser = ["brave-browser.desktop"];
 
   # XDG MIME types
   associations = {
