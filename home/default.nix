@@ -4,6 +4,8 @@
 
     ./programs
 
+    ./shell
+
     ./gaming/bottles.nix
     ./gaming/lutris.nix
     ./gaming/heroic.nix

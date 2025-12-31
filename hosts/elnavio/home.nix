@@ -6,8 +6,8 @@
 
     ../../home/core.nix
 
-    ../../home/shell
-    ../../home/programs
+    # ../../home/shell
+    # ../../home/programs   uncomment after clean all of  the home folder
   ];
 
  # Force Home Manager to overwrite existing files on first run
