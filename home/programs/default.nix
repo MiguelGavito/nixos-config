@@ -6,5 +6,6 @@
     ./media.nix
     ./xdg.nix
     ./networking.nix
+    ./gaming.nix
   ];
 }

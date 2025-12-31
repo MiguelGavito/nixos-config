@@ -10,6 +10,16 @@
       ./hardware-configuration.nix
       ../../modules/default.nix
     ];
+
+  # steam on nixos level, check later how config this
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
+
     
   networking.hostName = "elnavio";
   time.timeZone = "America/Monterrey";
