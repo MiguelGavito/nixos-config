@@ -13,6 +13,10 @@
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     STEAM_USE_XDG_DESKTOP_PORTAL = "1";
+    # Icon and GTK theme for tray icons
+    GTK_THEME = "Adwaita";
+    XDG_CURRENT_DESKTOP = "GNOME";
+    ICON_THEME = "Adwaita";
   };
 
   # Provide wrappers so apps that call xterm/x-terminal-emulator open kitty

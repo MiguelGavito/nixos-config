@@ -1,5 +1,7 @@
 # NixOS configuration
 
+this is not a tutorial nor a guide or similar, is the configuration from a newbie that is leaning, i do no recommend clone or try to build this repository without knowledge of nix or similar and do not use my host acounts configurations.
+
 ##philosophy:
 
 This github repository (temporary private before i learn how to secure all information) need to follow this ideas: MODULARITY, PORPUSE, EXPANDIBLE.
