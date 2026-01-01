@@ -7,6 +7,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; # unstable change to nixos-25.11 if want stable
     home-manager.url = "github:nix-community/home-manager/release-25.11"; # master / unstable  # add /nixos-25.11 if want stable
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprland.url = "github:hyprwm/Hyprland";
     catppuccin-bat = {
       url = "github:catppuccin/bat";
@@ -85,6 +86,7 @@
         ];
       };
     };
+
     homeConfigurations.lanave = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
@@ -98,6 +100,13 @@
       extraSpecialArgs = inputs // { username = "miguelagg"; };
       modules = [
         ./hosts/elnavio/home.nix
+      ];
+    };
+
+    homeConfigurations.labahia = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        ./hosts/labahia/home.nix
       ];
     };
   };
