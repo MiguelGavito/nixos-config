@@ -70,6 +70,7 @@ binds {
     
     // Screenshots (use shell for pipe)
     Print { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
+    Mod+Shift+S { spawn "sh" "-c" "mkdir -p ~/Pictures/Screenshots && grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"; }
     
     // Lock screen
     Mod+Escape { spawn "swaylock"; }
