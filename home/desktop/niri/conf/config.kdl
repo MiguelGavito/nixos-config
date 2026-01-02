@@ -36,7 +36,7 @@ layout {
 binds {
     // Aplicaciones
     Mod+Return { spawn "kitty"; }
-    Mod+Space { spawn "wofi" "--show" "drun"; }
+    Mod+Space { spawn "wofi" "--show" "drun" "--style" "~/.config/wofi/style.css" "--gtk-dark"; }
     
     // Window management
     Mod+Q { close-window; }
@@ -101,8 +101,3 @@ animations {
     slowdown 1.0
 }
 
-// Autostart programs
-spawn-at-startup "waybar"
-spawn-at-startup "mako"
-spawn-at-startup "nm-applet" "--sm-disable"
-spawn-at-startup "swaybg" "-m" "fill" "-i" "~/.config/wallpaper.jpg"

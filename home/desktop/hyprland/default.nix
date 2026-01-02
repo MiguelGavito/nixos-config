@@ -1,15 +1,25 @@
 
 { config, lib, pkgs, ... }:
 
+let
+  cfg = config.modules.desktop.hyprland;
+in 
 {
-  # Import shared base components
-  imports = [ ../base ];
+  options.modules.desktop.hyprland = {
+    enable = lib.mkEnableOption "Hyprland compositor";
+  };
 
-  # Deploy Hyprland configuration
-  xdg.configFile."hypr/hyprland.conf".source = ./conf/hyprland.conf;
+  config = lib.mkIf cfg.enable {
+    # Import shared base components
+    imports = [ ../base ];
 
-  # Optional: Hyprland-specific packages or settings
-  home.packages = with pkgs; [
-    # Add Hyprland-specific tools here if needed
-  ];
+
+    # Deploy Hyprland configuration
+    xdg.configFile."hypr/hyprland.conf".source = ./conf/hyprland.conf;
+
+    # Optional: Hyprland-specific packages or settings
+    home.packages = with pkgs; [
+      # Add Hyprland-specific tools here if needed
+    ];
+  };
 }
