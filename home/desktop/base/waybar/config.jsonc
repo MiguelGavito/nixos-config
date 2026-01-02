@@ -6,9 +6,9 @@
   "position": "top",
   "height": 32,
   "spacing": 8,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["wlr/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["hyprland/language", "keyboard-state","pulseaudio", "backlight", "battery", "network", "tray"],
+  "modules-right": ["keyboard-state", "pulseaudio", "backlight", "battery", "network", "tray"],
 
   "clock": {
     "format": "{:%d-%m-%Y %H:%M:%S}",
@@ -39,16 +39,15 @@
   "hyprland/language": {
     "format": "{}"
   },
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": false,
-    "format": "{icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-
-    }
-  },
+"keyboard-state": {
+	"numlock": true,
+	"capslock": true,
+	"format": "{name} {icon}",
+	"format-icons": {
+		"locked": "",
+		"unlocked": ""
+	}
+},
   "battery": {
     "format": "{icon} {capacity}%",
     "format-icons": ["","","","",""],
