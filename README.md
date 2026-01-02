@@ -1,88 +1,88 @@
-# NixOS configuration
+# NixOS Configuration
 
-this is not a tutorial nor a guide or similar, is the configuration from a newbie that is leaning, i do no recommend clone or try to build this repository without knowledge of nix or similar and do not use my host acounts configurations.
+This is not a tutorial or guide, but rather a learning configuration from a NixOS beginner. I do not recommend cloning or building this repository without knowledge of Nix. Do not use my host account configurations.
 
-##philosophy:
+## Philosophy
 
-This github repository (temporary private before i learn how to secure all information) need to follow this ideas: MODULARITY, PORPUSE, EXPANDIBLE.
+This GitHub repository follows these core principles: **MODULARITY**, **PURPOSE**, **EXPANDABILITY**.
 
-This repository as well is a personal proyect where i learn how to configure all of it, it may have error but the objetive is to learn and solve them.
+This repository is a personal learning project. It may contain errors, but the objective is to learn and solve them.
 
-## Desktop Desing and workflow rules
+## Desktop Design and Workflow Rules
 
-The workflow design need to follow this rules:
+The workflow design follows these principles:
 - Simple to use
 - Minimalist
 - Efficient
 
-the principal idea is to config all the system to need only the keyboard to work, this may need more use of terminal, programs as vim and emacs and similar things.
-
-
-# KEYBINDINGS
-
-
-# Atajos de Teclado - Window Managers
-
-## Niri
-
-### Aplicaciones básicas
-- `Super + Enter` → Terminal (kitty)
-- `Super + Space` → Launcher (wofi)
-- `Super + Escape` → Lock screen (swaylock)
-
-### Gestión de ventanas
-- `Super + Q` → Cerrar ventana actual
-- `Super + H/J/K/L` → Mover foco (izquierda/abajo/arriba/derecha)
-- `Super + Shift + H/J/K/L` → Mover ventana
-
-### Workspaces
-- `Super + 1/2/3/4/5` → Ir a workspace
-- `Super + Shift + 1/2/3/4/5` → Mover ventana a workspace
-
-### Sistema
-- `Super + Shift + E` → Salir de Niri
-- `Super + Shift + R` → Reiniciar Niri
-- `Print` → Screenshot (área seleccionada)
+The main idea is to configure the entire system to work primarily with the keyboard. This requires more terminal usage, programs like Vim and Emacs, and similar tools.
 
 ---
 
-## Hyprland
+# Keybindings
 
-### Aplicaciones básicas
+## Window Managers
+
+### Niri
+
+#### Basic Applications
 - `Super + Enter` → Terminal (kitty)
 - `Super + Space` → Launcher (wofi)
 - `Super + Escape` → Lock screen (swaylock)
 
-### Gestión de ventanas
-- `Super + Q` → Cerrar ventana actual
+#### Window Management
+- `Super + Q` → Close current window
+- `Super + H/J/K/L` → Move focus (left/down/up/right)
+- `Super + Shift + H/J/K/L` → Move window
+
+#### Workspaces
+- `Super + 1/2/3/4/5` → Switch to workspace
+- `Super + Shift + 1/2/3/4/5` → Move window to workspace
+
+#### System
+- `Super + Shift + E` → Exit Niri
+- `Super + Shift + R` → Restart Niri
+- `Print` → Screenshot (selected area)
+
+---
+
+### Hyprland
+
+#### Basic Applications
+- `Super + Enter` → Terminal (kitty)
+- `Super + Space` → Launcher (wofi)
+- `Super + Escape` → Lock screen (swaylock)
+
+#### Window Management
+- `Super + Q` → Close current window
 - `Super + F` → Fullscreen
 - `Super + V` → Toggle floating
-- `Super + H/J/K/L` → Mover foco (izquierda/abajo/arriba/derecha)
-- `Super + Shift + H/J/K/L` → Mover ventana
+- `Super + H/J/K/L` → Move focus (left/down/up/right)
+- `Super + Shift + H/J/K/L` → Move window
 
-### Workspaces
-- `Super + 1/2/3/4/5` → Ir a workspace
-- `Super + Shift + 1/2/3/4/5` → Mover ventana a workspace
+#### Workspaces
+- `Super + 1/2/3/4/5` → Switch to workspace
+- `Super + Shift + 1/2/3/4/5` → Move window to workspace
 
-### Sistema
-- `Super + M` → Salir de Hyprland
-- `Print` → Screenshot (área seleccionada)
+#### System
+- `Super + M` → Exit Hyprland
+- `Print` → Screenshot (selected area)
 
-### Multimedia (teclas de función)
-- `XF86MonBrightnessUp/Down` → Brillo
-- `XF86AudioRaiseVolume/LowerVolume` → Volumen
-- `XF86AudioMute` → Mutear
-- `XF86AudioPlay/Next/Prev` → Control de reproducción
+#### Multimedia (Function Keys)
+- `XF86MonBrightnessUp/Down` → Brightness
+- `XF86AudioRaiseVolume/LowerVolume` → Volume
+- `XF86AudioMute` → Mute
+- `XF86AudioPlay/Next/Prev` → Playback control
 
-### Mouse
-- `Super + Click izquierdo` → Mover ventana
-- `Super + Click derecho` → Redimensionar ventana
+#### Mouse
+- `Super + Left Click` → Move window
+- `Super + Right Click` → Resize window
 
 ---
 
-## Notas importantes
+## Important Notes
 
-- **Super** = Tecla Windows/Command
-- Los atajos son consistentes entre ambos WMs donde es posible
-- Wofi se abre con `Super + Space` para buscar y lanzar aplicaciones
-- Kitty es el terminal por defecto (rápido y con GPU acceleration)
+- **Super** = Windows/Command key
+- Keybindings are consistent between both WMs where possible
+- Wofi opens with `Super + Space` to search and launch applications
+- Kitty is the default terminal (fast with GPU acceleration)
