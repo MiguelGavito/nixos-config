@@ -20,32 +20,71 @@
     home-manager, 
     hyprland, 
     ... 
-  }: {
+  }:
+  let
+    username = "miguelagg";
+    system = "x86_64-linux";
+    specialArgs = {inherit username nixpkgs hyprland;};
+
+    # Base modules shared by all configurations
+    baseModules = [
+      { nixpkgs.config.allowUnfree = true; }
+      ./hosts/elnavio/configuration.nix
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useUserPackages = true;
+        home-manager.useGlobalPkgs = true;
+        home-manager.extraSpecialArgs = inputs // specialArgs;
+      }
+    ];
+  in
+  {
     nixosConfigurations = {
-      elnavio = let
-        username = "miguelagg";
-        specialArgs = {inherit username nixpkgs hyprland;};
-      in
-        nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = "x86_64-linux";
-
-          modules = [
-            { nixpkgs.config.allowUnfree = true; }
-            ./hosts/elnavio/configuration.nix
-            # when i divide this i would change this and add the path to the home.nix on user folder
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useUserPackages = true;
-              home-manager.useGlobalPkgs = true;
-
-              home-manager.extraSpecialArgs = inputs // specialArgs;
-              home-manager.users.${username} = import ./hosts/elnavio/home.nix; # later change this with users/${username}/home.nix
-
-            }
-          ];
-        };
+      # Configuration with Hyprland compositor
+      elnavio-hyprland = nixpkgs.lib.nixosSystem {
+        inherit specialArgs system;
+        modules = baseModules ++ [
+          {
+            home-manager.users.${username} = {
+              imports = [
+                ./hosts/elnavio/home.nix
+                { modules.desktop.hyprland.enable = true; }
+              ];
+            };
+          }
+        ];
       };
+
+      # Configuration with Niri compositor
+      elnavio-niri = nixpkgs.lib.nixosSystem {
+        inherit specialArgs system;
+        modules = baseModules ++ [
+          {
+            home-manager.users.${username} = {
+              imports = [
+                ./hosts/elnavio/home.nix
+                { modules.desktop.niri.enable = true; }
+              ];
+            };
+          }
+        ];
+      };
+
+      # Legacy configuration (defaults to Niri for backward compatibility)
+      elnavio = nixpkgs.lib.nixosSystem {
+        inherit specialArgs system;
+        modules = baseModules ++ [
+          {
+            home-manager.users.${username} = {
+              imports = [
+                ./hosts/elnavio/home.nix
+                { modules.desktop.niri.enable = true; }
+              ];
+            };
+          }
+        ];
+      };
+    };
     homeConfigurations.lanave = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
@@ -63,3 +102,4 @@
     };
   };
 }
+

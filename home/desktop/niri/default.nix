@@ -8,9 +8,7 @@ in
     enable = lib.mkEnableOption "Niri compositor";
   };
 
-  confi = lib.mkIf cfg.enable {
-    # Import shared base components
-    import = [ ../base ];
+  config = lib.mkIf cfg.enable {
 
     # Deploy Niri configuration
     xdg.configFile."niri/config.kdl".source = ./conf/config.kdl;

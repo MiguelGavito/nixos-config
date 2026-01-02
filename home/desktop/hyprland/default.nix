@@ -10,9 +10,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # Import shared base components
-    imports = [ ../base ];
-
 
     # Deploy Hyprland configuration
     xdg.configFile."hypr/hyprland.conf".source = ./conf/hyprland.conf;
