@@ -27,6 +27,7 @@
     environment.systemPackages = with pkgs; [
       niri
       wofi
+      fuzzel
       kitty
       swaylock
       swayidle
@@ -60,6 +61,7 @@
     xdg.portal.wlr.enable = true;
     xdg.portal.extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
       xdg-desktop-portal-wlr
     ];
   };
