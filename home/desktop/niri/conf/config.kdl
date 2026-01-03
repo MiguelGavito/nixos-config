@@ -64,7 +64,7 @@ binds {
     Mod+Shift+3 { move-column-to-workspace 3; }
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
-        
+       /*  
     // Workspaces - Numpad directional navigation (no cursor movement)
     Mod+KP_Up { focus-workspace 0; }         // Numpad 8: Previous workspace
     Mod+KP_Down { focus-workspace 1; }       // Numpad 2: Next workspace
@@ -74,6 +74,31 @@ binds {
     // Move windows with Mod+Shift+Numpad directional
     Mod+Shift+KP_Left { move-column-left; }     // Mod+Shift+Numpad 4: Move window left
     Mod+Shift+KP_Right { move-column-right; }   // Mod+Shift+Numpad 6: Move window right
+     */
+
+
+
+    // Column width management
+    Mod+W { toggle-column-tabbed-display; }          // Tabbed layout for column
+    Mod+R { switch-preset-column-width; }            // Cycle preset column widths
+    Mod+Shift+R { switch-preset-column-width-back; } // Reverse cycle (optional)
+    Mod+Equal { set-column-width "+5%"; }            // Increase width
+    Mod+Minus { set-column-width "-5%"; }            // Decrease width
+
+    // Floating windows
+    Mod+V { toggle-window-floating; }                // Float ↔ Tile
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; } // Focus between layouts
+
+    // Workspace cycling
+    Alt+Page_Up   { focus-workspace-up; }
+    Alt+Page_Down { focus-workspace-down; }
+
+    // Move window to adjacent workspace
+    Mod+Alt+J { move-window-down-or-to-workspace-down; }
+    Mod+Alt+K { move-window-up-or-to-workspace-up; }
+
+    // Help and system
+    Mod+Shift+Slash { show-hotkey-overlay; }         // Show hotkey overlay
     
     // Sistema
     Mod+Shift+E { quit; }
