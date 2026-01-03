@@ -36,8 +36,8 @@ layout {
 binds {
     // Aplicaciones
     Mod+Return { spawn "kitty"; }
-    Mod+Space { spawn "wofi" "--show" "drun" "--style" "~/.config/wofi/style.css" "--gtk-dark"; }
-    Mod+D { spawn "fuzzel"; }
+    // Mod+Space { spawn "wofi" "--show" "drun" "--style" "~/.config/wofi/style.css" "--gtk-dark"; }
+    Mod+Space { spawn "fuzzel"; }
 
     // Window management
     Mod+Q { close-window; }

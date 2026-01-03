@@ -6,6 +6,7 @@
   
   # Install packages
   home.packages = with pkgs; [
+    fuzzel
     waybar
     wofi
     mako
@@ -71,6 +72,32 @@
     };
   };
 
+  # fuzzel configuration
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        termial = "kitty";
+        anchor = "center";
+        lines = 15;
+        width = 40;
+        horizontal-pad = 10;
+        match-mode = "prefix";
+      };
+      colors = {
+        background = "1e1e2eff";      # Catppuccin dark
+        text = "cdd6f4ff";            # Light text
+        match = "a6e3a1ff";           # Green matches
+        selection = "89b4faff";       # Blue selection
+        selection-text = "1e1e2eff";
+        border = "89b4faff";
+      };
+      border = {
+        width = 2;
+        radius = 8;
+      };
+    };
+  }; 
   # Deploy Waybar config
   xdg.configFile = {
     "waybar/config".source = ./waybar/config.jsonc;
