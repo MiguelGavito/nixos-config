@@ -77,12 +77,11 @@
     enable = true;
     settings = {
       main = {
-        termial = "kitty";
+        terminal = "kitty";
         anchor = "center";
-        lines = 15;
-        width = 40;
+        lines = 20;
+        width = 50;
         horizontal-pad = 10;
-        match-mode = "prefix";
       };
       colors = {
         background = "1e1e2eff";      # Catppuccin dark
