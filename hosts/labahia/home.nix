@@ -1,18 +1,12 @@
+
 { config, pkgs, ... }:
 {
-  nixpkgs.config.allowUnfree = true;
+  # labahia-specific configuration
+  # Common settings like username/homeDirectory are set in outputs/x86_64-linux/src/labahia.nix
   
   imports = [
-   # ../../home/cliPrograms/git.nix
-   # ../../home/cliPrograms/ssh.nix
-    ../../home/cliPrograms/nvim  
+    ../../home/ide/nvim
   ];
-
-  home.username = "mariolo";
-  home.homeDirectory = "/home/mariolo";
-  home.stateVersion = "25.11";
-
-  programs.home-manager.enable = true;
 
   # Optional: fonts for terminal/Nerd Fonts
   fonts.fontconfig.enable = true;
@@ -20,3 +14,4 @@
     nerd-fonts.jetbrains-mono
   ];
 }
+

@@ -1,16 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../../home
-
-    ../../home/core.nix
-
-    # ../../home/shell
-    # ../../home/programs   uncomment after clean all of  the home folder
-  ];
-
- # Force Home Manager to overwrite existing files on first run
+  # Only elnavio-specific home-manager settings here
+  # Common configs are imported via outputs/x86_64-linux/src/elnavio.nix
+  
+  # Force Home Manager to overwrite existing files on first run
   xdg.configFile."mimeapps.list".force = true;
   xdg.configFile."user-dirs.dirs".force = true;
   home.file.".mozilla/firefox/profiles.ini".force = true;
@@ -20,9 +14,7 @@
     user.email = "mgavitogzz@gmail.com";
   };
 
-
-  # all of this down is just settings on gnome
-  
+  # GNOME-specific settings (active when using GNOME session)
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       cursor-theme = "Adwaita";

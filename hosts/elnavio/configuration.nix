@@ -18,14 +18,8 @@
   # What shell is used systemwide
   programs.zsh.enable = true;
 
-  # Que escritorio prefieres
-  desktops.kde.enable = false;
-  desktops.gnome.enable = true;
-  desktops.hyprland.enable = true;
-  desktops.niri.enable = true;
-
-  services.displayManager.gdm.enable = true;
-  #services.displayManager.sddm.enable = false;
+  # Desktop selection is now handled in outputs/x86_64-linux/src/elnavio.nix
+  # This allows both GNOME and Niri to be installed and selectable at GDM login
 
   # cursor para cada escritorio
   desktops.gnome.cursorTheme = "Adwaita";
