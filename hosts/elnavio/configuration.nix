@@ -7,19 +7,10 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      <nixos-hardware/asus/fa507nv>
       ./hardware-configuration.nix
       ../../modules/default.nix
     ];
-
-  # steam on nixos level, check later how config this
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-
-
     
   networking.hostName = "elnavio";
   time.timeZone = "America/Monterrey";
@@ -39,6 +30,9 @@
 
   # cursor para cada escritorio
   desktops.gnome.cursorTheme = "Adwaita";
+
+  # configuration for a asus tuf a15
+  # is on the imports
 
   # MOVER LA CONFIGURACION DEN UN IMPORT O MODULO SEPARADO, QUIZAS QUE SEA EN EL USUARIO 
 

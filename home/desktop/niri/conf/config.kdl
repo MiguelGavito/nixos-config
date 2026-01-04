@@ -33,6 +33,12 @@ layout {
     }
 }
 
+// Window rules
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
 // Atajos de teclado básicos
 binds {
 
@@ -226,7 +232,6 @@ binds {
 
     // Sistema
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
 
     Ctrl+Alt+Delete { quit; }
     // Mod+Shift+R { spawn "systemctl" "--user" "restart" "niri"; }

@@ -11,17 +11,10 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
-    
-    # Add compatibility packages for better Wayland support
-    extraCompatPackages = with pkgs; [
-      gamescope  # Valve's microcompositor for gaming
-    ]; 
-    
-    extest.enable = true;
 
-
-    # Enable gamescope session (optional, can wrap Steam)
     gamescopeSession.enable = true;
+
+    
   };
 
  

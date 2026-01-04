@@ -13,19 +13,22 @@
       url = "github:catppuccin/bat";
       flake = false;  # Es solo un archivo, no un flake
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = inputs @ {
     self,
     nixpkgs, 
     home-manager, 
-    hyprland, 
+    hyprland,
+    nixos-hardware,
     ... 
   }:
   let
     username = "miguelagg";
     system = "x86_64-linux";
-    specialArgs = {inherit username nixpkgs hyprland;};
+    specialArgs = {inherit username nixpkgs hyprland ;};
 
     # Base modules shared by all configurations
     baseModules = [
@@ -39,7 +42,13 @@
       }
     ];
   in
-  {
+  { 
+
+
+
+    # Clean later all this dirty same user configurations, are unescesary
+
+
     nixosConfigurations = {
       # Configuration with Hyprland compositor
       elnavio-hyprland = nixpkgs.lib.nixosSystem {
@@ -53,6 +62,7 @@
               ];
             };
           }
+          nixos-hardware.nixosmodules.asus-fa507nv
         ];
       };
 
@@ -67,7 +77,8 @@
                 { modules.desktop.niri.enable = true; }
               ];
             };
-          }
+          }          
+          nixos-hardware.nixosmodules.asus-fa507nv
         ];
       };
 
@@ -83,6 +94,7 @@
               ];
             };
           }
+          nixos-hardware.nixosModules.asus-fa507nv
         ];
       };
     };

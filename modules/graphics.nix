@@ -10,10 +10,16 @@
     enable32Bit = true;
   };
 
+ /*  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32 = true;
+  }; */
+
   # Configure the NVIDIA driver
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true; # Use the open-source kernel module
+    open = false; # Use the open-source kernel module
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
@@ -32,9 +38,5 @@
     };
   };
 
-  # Load the nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = 
-    if (config.desktops.hyprland.enable || config.desktops.niri.enable)
-    then [ "amdgpu" ]      # Solo AMD para Wayland compositors
-    else [ "modesetting" "nvidia" ];  # AMD+NVIDIA para GNOME/KDE
+  services.xserver.videoDrivers = [ "nvidia" ];
 }
