@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
 
@@ -33,8 +33,8 @@
 	      enableOffloadCmd = true;
       };
       # Use the Bus IDs
-      amdgpuBusId = "PCI:1:0:0";
-      nvidiaBusId = "PCI:36:0:0";
+      amdgpuBusId = lib.mkDefault "PCI:1:0:0";
+      nvidiaBusId = lib.mkDefault "PCI:36:0:0";
     };
   };
 

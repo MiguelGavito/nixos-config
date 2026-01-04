@@ -33,6 +33,7 @@
     # Base modules shared by all configurations
     baseModules = [
       { nixpkgs.config.allowUnfree = true; }
+      nixos-hardware.nixosModules.asus-fa507nv
       ./hosts/elnavio/configuration.nix
       home-manager.nixosModules.home-manager
       {
@@ -62,7 +63,6 @@
               ];
             };
           }
-          nixos-hardware.nixosmodules.asus-fa507nv
         ];
       };
 
@@ -78,7 +78,6 @@
               ];
             };
           }          
-          nixos-hardware.nixosmodules.asus-fa507nv
         ];
       };
 
@@ -94,7 +93,6 @@
               ];
             };
           }
-          nixos-hardware.nixosModules.asus-fa507nv
         ];
       };
     };

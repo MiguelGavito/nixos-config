@@ -7,7 +7,6 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      <nixos-hardware/asus/fa507nv>
       ./hardware-configuration.nix
       ../../modules/default.nix
     ];
