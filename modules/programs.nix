@@ -4,18 +4,30 @@
   # install kde for connect with phone  
   programs.kdeconnect.enable = true;
 
-
-  # Install Steam with Wayland compatibility packages
+  # this is the steam configuration
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-
-    gamescopeSession.enable = true;
-
-    
+    gamescopeSession.enable = true;    
   };
+
+  environment.systemPackages = with pkgs; [
+    mangohud
+
+    protonup-ng
+  ];
+
+  programs.gamemode.enable = true;
+
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = 
+      "home/user/.steam/root/compatibilitytools.d";
+  };
+  # para que tu programa en steam pueda usar estos modos hay que escribir
+  # gamemoderun %command%
+  # mangohud %command%
+  # gamescope %command%
+
+  # end of steam configuration
 
  
 }
