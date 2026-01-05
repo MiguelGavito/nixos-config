@@ -16,13 +16,17 @@
     # Compositor y esenciales mínimos
     programs.niri.enable = true;
     
+    # Enable GNOME Keyring for credential storage (consistency with GNOME)
+    services.gnome.gnome-keyring.enable = true;
+    security.pam.services.swaylock.enableGnomeKeyring = true;
+    
     # Force Niri to use AMD iGPU (not NVIDIA)
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       __GLX_VENDOR_LIBRARY_NAME = "amd";
-      DRI_PRIME = "0"; # Use AMD iGPU (bus 1:0:0)
-
-      };
+      # Steam needs X11 backend on Wayland, not pure Wayland
+      SDL_VIDEODRIVER = "x11";
+    };
 
     environment.systemPackages = with pkgs; [
       niri

@@ -20,8 +20,6 @@
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       __GLX_VENDOR_LIBRARY_NAME = "amd";
-      DRI_PRIME = "0"; # Use AMD iGPU (bus 1:0:0)
-
     };
 
     # Portals para Wayland (hyprland portal auto-installed by programs.hyprland.enable)

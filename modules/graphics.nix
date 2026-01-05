@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 
@@ -8,6 +8,11 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      # NVIDIA Vulkan
+      nvidia-vaapi-driver
+      # AMD Vulkan (RADV) is enabled by default for integrated GPU
+    ];
   };
 
  /*  hardware.opengl = {
