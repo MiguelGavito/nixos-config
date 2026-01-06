@@ -1,0 +1,6 @@
+{
+  imports = [
+    ./nvim
+    ./vscode.nix
+  ];
+}

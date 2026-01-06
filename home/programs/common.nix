@@ -36,6 +36,7 @@
     
     # art design
     blender
+    musescore
     
     # IDE
     # insomnia

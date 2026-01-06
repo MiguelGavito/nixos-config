@@ -1,7 +1,7 @@
 
 {
   imports = [
-    ./ide/nvim
+    ./ide
     ./programs
     ./shell
     ./desktop/base  # Common desktop configurations
