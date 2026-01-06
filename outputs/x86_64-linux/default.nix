@@ -11,6 +11,7 @@ let
   elnavio = import ./src/elnavio.nix args;
   labahia = import ./src/labahia.nix args;
   lanave = import ./src/lanave.nix args;
+  elcarguero = import ./src/elcarguero.nix args;
 in
 {
   nixosConfigurations = {
@@ -20,5 +21,6 @@ in
   homeConfigurations = {
     inherit (labahia) labahia;
     inherit (lanave) lanave;
+    inherit (elcarguero) elcarguero;
   };
 }
