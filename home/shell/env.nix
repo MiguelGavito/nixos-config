@@ -2,15 +2,15 @@
 {
   # Session-wide defaults for terminal/editor, Wayland, and paging
   home.sessionVariables = {
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "brave";
-    XCURSOR_SIZE = "24";
+    XCURSOR_SIZE = "18";
     # Wayland-friendly env for Steam/UI toolkits
-    XDG_SESSION_TYPE = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-    SDL_VIDEODRIVER = "wayland";
+    # XDG_SESSION_TYPE = "wayland";
+    # QT_QPA_PLATFORM = "wayland";
+    # SDL_VIDEODRIVER = "wayland";
     # Icon and GTK theme for tray icons
     GTK_THEME = "Adwaita:dark";
     ICON_THEME = "Adwaita:dark";

@@ -4,6 +4,11 @@
   # Only elnavio-specific home-manager settings here
   # Common configs are imported via outputs/x86_64-linux/src/elnavio.nix
   
+  # Ensure Wayland env only on Wayland hosts
+  imports = [
+    ../../home/shell/wayland-env.nix
+  ];
+  
   # Force Home Manager to overwrite existing files on first run
   xdg.configFile."mimeapps.list".force = true;
   xdg.configFile."user-dirs.dirs".force = true;
@@ -45,4 +50,3 @@
     adwaita-icon-theme
   ];
 }
-

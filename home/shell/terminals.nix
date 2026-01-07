@@ -18,7 +18,6 @@ in
       background_opacity = "0.90";
       scrollbar_handle_opacity = 0;
       scrollbar_track_opacity = 0;
-      scrollbar_track_handle_opacity = 0;
 
       background_blur = 1;
 

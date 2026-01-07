@@ -4,6 +4,6 @@
   home.shellAliases = {
     k = "kubectl";
     ll = "eza -la --icons --git";
-    nixc = "cd ~/Dev/nixos-config";
+    nixc = "cd ~/nixos-config";
   };
 }
