@@ -1,8 +1,9 @@
+
 { config, lib, pkgs, ... }:
 {
   # Session-wide defaults for terminal/editor, Wayland, and paging
   home.sessionVariables = {
-    TERMINAL = "alacritty";
+    TERMINAL = "x-terminal-emulator";
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "brave";
@@ -25,10 +26,26 @@
     WINEPREFIX = "${config.xdg.dataHome}/wine";
   };
 
-  # Provide wrappers so apps that call xterm/x-terminal-emulator open kitty
+  # Provide a portable terminal wrapper that picks the first available
   home.packages = [
-    (pkgs.writeShellScriptBin "xterm" ''exec kitty "$@"'')
-    (pkgs.writeShellScriptBin "x-terminal-emulator" ''exec kitty "$@"'')
+    (pkgs.writeShellScriptBin "x-terminal-emulator" ''
+      #!/usr/bin/env bash
+      set -euo pipefail
+      try() { command -v "$1" >/dev/null 2>&1; }
+
+      if try kitty; then exec kitty "$@"; fi
+      if try alacritty; then exec alacritty "$@"; fi
+      if try konsole; then exec konsole "$@"; fi
+      if try foot; then exec foot "$@"; fi
+      if try wezterm; then exec wezterm "$@"; fi
+      if try gnome-terminal; then exec gnome-terminal "$@"; fi
+
+      echo "No terminal found (kitty/alacritty/konsole/foot/wezterm/gnome-terminal)." >&2
+      echo "Please install one of them or adjust the wrapper." >&2
+      exit 127
+    '')
   ];
 }
+
+
 
