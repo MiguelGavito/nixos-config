@@ -1,0 +1,60 @@
+
+# Mako notification daemon configuration
+# https://github.com/emersion/mako/blob/main/mako.5.scd
+
+[base]
+# Anchor where notifications will be placed (e.g. bottom-right, top-left, center)
+anchor=top-right
+
+# Margin from screen edge (top right)
+margin=10
+
+# Border properties
+border-size=2
+border-radius=8
+border-color=#88c0d0ff
+
+# Background and text colors (Nord theme)
+background-color=#2e3440ff
+text-color=#eceff4ff
+
+# Icon settings
+icon-path=/usr/share/icons/Adwaita/scalable/status:/usr/share/icons/Adwaita/scalable/emblems
+
+# Display settings
+width=350
+height=100
+padding=15
+margin-bottom=10
+
+# Timeout (milliseconds) - 0 means timeout disabled
+timeout=5000
+
+# Maximum number of notifications to display at once
+max-visible=5
+
+# Text formatting
+format=<b>%s</b>\n%b
+
+# Progress bar color
+progress-color=over #88c0d0ff
+
+# Font settings
+font=Monospace 10
+
+
+# Critical notifications - red border/background
+[urgency=critical]
+border-color=#bf616aff
+background-color=#2e3440ff
+text-color=#eceff4ff
+timeout=0
+
+# Normal notifications - default colors (already set above)
+
+# Low priority notifications - muted colors
+[urgency=low]
+border-color=#4c566aff
+text-color=#d8dee9ff
+timeout=3000
+

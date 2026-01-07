@@ -52,7 +52,7 @@
         After = [ "graphical-session.target" ]; 
       }; 
       Service = { 
-        ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.home.homeDirectory}/.config/wallpaper.jpg"; 
+        ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.home.homeDirectory}/.config/wallpaper.png"; 
         Restart = "on-failure"; 
       }; 
       Install = { WantedBy = [ "graphical-session.target" ]; };
@@ -97,9 +97,10 @@
       };
     };
   }; 
-  # Deploy Waybar config
+    # Deploy Waybar and Mako configs
   xdg.configFile = {
     "waybar/config".source = ./waybar/config.jsonc;
     "waybar/style.css".source = ./waybar/style.css;
-  };
+    "mako/config".source = ./mako/config;
+  }; 
 }

@@ -6,7 +6,7 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "brave";
-    XCURSOR_SIZE = "24";
+    XCURSOR_SIZE = "18";
     # Wayland-friendly env for Steam/UI toolkits
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";

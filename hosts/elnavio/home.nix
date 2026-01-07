@@ -18,7 +18,7 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       cursor-theme = "Adwaita";
-      cursor-size = 24;
+      cursor-size = 18;
     };
   
     # Atajos de teclado personalizados
