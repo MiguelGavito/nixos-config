@@ -91,6 +91,16 @@ in
 
       nvim-web-devicons
       mini-nvim
+
+      {
+        plugin = gruvbox-nvim;
+        config = toLua ''vim.cmd.colorscheme "gruvbox"'';
+      }
+
+      {
+        plugin = nvim-autopairs;
+        config = toLua ''require("nvim-autopairs").setup()'';
+      }
     
       {
         plugin = comment-nvim;
