@@ -12,8 +12,8 @@
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     # Icon and GTK theme for tray icons
-    GTK_THEME = "Adwaita";
-    ICON_THEME = "Adwaita";
+    GTK_THEME = "Adwaita:dark";
+    ICON_THEME = "Adwaita:dark";
 
     # Pager and less history locations
     LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
