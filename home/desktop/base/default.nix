@@ -52,7 +52,8 @@
         After = [ "graphical-session.target" ]; 
       }; 
       Service = { 
-        ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.home.homeDirectory}/.config/wallpaper.jpg"; 
+        # Use XDG data directory for wallpaper (wallpaper.png from project root)
+        ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.xdg.dataHome}/wallpapers/wallpaper.png"; 
         Restart = "on-failure"; 
       }; 
       Install = { WantedBy = [ "graphical-session.target" ]; };
@@ -102,4 +103,15 @@
     "waybar/config".source = ./waybar/config.jsonc;
     "waybar/style.css".source = ./waybar/style.css;
   };
+
+  # Wallpaper management with home-manager
+  # Using wallpaper.png from project root
+  home.file."${config.xdg.dataHome}/wallpapers/wallpaper.png" = {
+    source = ../../../wallpaper.png;
+  };
+
+  # Wallpaper directory setup (if doesn't exist)
+  home.activation.createWallpaperDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    mkdir -p ${config.xdg.dataHome}/wallpapers
+  '';
 }

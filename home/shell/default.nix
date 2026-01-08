@@ -1,13 +1,13 @@
 { ... }:
 {
   imports = [
-    ./env.nix
+    ./bash.nix        
+    ./zsh.nix
     ./nushell
-    ./common.nix
+    ./common.nix      # Tool integrations
     ./starship.nix
     ./terminals.nix
-    ./zsh.nix
-    ./env.nix
     ./aliases.nix
+    ./env.nix
   ];
 }

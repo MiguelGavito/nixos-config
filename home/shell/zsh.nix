@@ -1,17 +1,27 @@
+
 { config, pkgs, ... }:
 
 {
   programs.zsh = {
-    enable = true; # see later
+    enable = true;
     enableCompletion = true;
+    
+    # Oh-my-zsh for quick setup
     oh-my-zsh = {
       enable = true;
       theme = "agnoster";
-      plugins = [ "git" "z" ];
+      plugins = [ 
+        "git" 
+        "z"         # Directory jumping (note: zoxide is better and enabled in common.nix)
+        "direnv"    # Auto environment loading
+      ];
     };
     
-    # history.size = 10000;
+    # History settings
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
   };
-
-
 }
+

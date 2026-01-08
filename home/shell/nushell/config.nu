@@ -1,8 +1,16 @@
+# Nushell configuration
+# Most config is managed by home-manager (aliases, integrations)
+# This file is for nushell-specific settings only
 
-# Minimal Nushell config to mirror shared aliases and prompt
-# Starship integration (home-manager enables init file in ~/.cache/starship)
+# Starship prompt integration (home-manager manages this)
 source ~/.cache/starship/init.nu
 
-alias k = kubectl
-alias ll = eza -la --icons --git
-alias nixc = cd ~/Dev/nixos-config
+# Nushell-specific settings
+$env.config = {
+  show_banner: false
+  edit_mode: vi
+}
+
+# Aliases are managed by home-manager via programs.nushell.shellAliases
+# See home/shell/aliases.nix
+
