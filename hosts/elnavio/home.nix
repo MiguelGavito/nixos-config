@@ -3,7 +3,6 @@
 {
   # Only elnavio-specific home-manager settings here
   # Common configs are imported via outputs/x86_64-linux/src/elnavio.nix
-  
   # Force Home Manager to overwrite existing files on first run
   xdg.configFile."mimeapps.list".force = true;
   xdg.configFile."user-dirs.dirs".force = true;

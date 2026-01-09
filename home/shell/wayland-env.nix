@@ -21,7 +21,7 @@
     SDL_VIDEODRIVER = "wayland";
     
     # Cursor settings for Wayland
-    XCURSOR_SIZE = "24";
+    XCURSOR_SIZE = "18";
     
     # GTK theme for Wayland
     GTK_THEME = "Adwaita:dark";
