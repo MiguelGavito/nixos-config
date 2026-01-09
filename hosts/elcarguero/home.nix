@@ -6,6 +6,7 @@
   # Common settings like username/homeDirectory are set in outputs/x86_64-linux/src/labahia.nix
   
   imports = [
+    ../../home/shell
     ../../home/ide/nvim
   ];
 
