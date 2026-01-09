@@ -5,7 +5,7 @@
   
   imports = [
     ../../home/ide/nvim
-    # ../../home/shell  # later check how useful could be
+    ../../home/shell  # later check how useful could be
   ];
 
   # Optional: fonts for terminal/Nerd Fonts
