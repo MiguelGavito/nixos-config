@@ -102,6 +102,7 @@
   xdg.configFile = {
     "waybar/config".source = ./waybar/config.jsonc;
     "waybar/style.css".source = ./waybar/style.css;
+    "waybar/scripts/launch.sh".source = ./waybar/scripts/launch.sh;
   };
 
   # Wallpaper management with home-manager
