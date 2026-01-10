@@ -10,7 +10,7 @@ let
     la = "eza -a --icons";
     
     # Quick navigation
-    nixc = "cd ~/Dev/nixos-config";
+    nixc = "cd ~/nixos-config";
     ".." = "cd ..";
     "..." = "cd ../..";
     
