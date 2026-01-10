@@ -13,9 +13,9 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-    enableBashIntegration = true;   # Was missing!
+    enableBashIntegration = true;       
     enableZshIntegration = true;
-    enableNushellIntegration = true; # Was missing!
+    enableNushellIntegration = true; 
   };
 
   # Smart cd - remembers directories you use most
@@ -38,7 +38,7 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    enableNushellIntegration = false; # nushell has its own ls
+    enableNushellIntegration = false; 
     git = true;
     icons = "auto";
   };
