@@ -15,6 +15,8 @@
   time.timeZone = "America/Monterrey";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  nixpkgs.config.allowUnfree = true;
+
   # What shell is used systemwide
   programs.zsh.enable = true;
 

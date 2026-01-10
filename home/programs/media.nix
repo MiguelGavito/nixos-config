@@ -20,6 +20,11 @@
     vlc
     #edition images
     gimp
+
+    # here gona put the more personal programs and possible config
+
+    kew   #hear music on terminal
+    ytmdl #download youtube music with metadata
   ];
 
   programs = {
