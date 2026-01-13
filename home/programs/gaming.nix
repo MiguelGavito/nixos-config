@@ -4,7 +4,7 @@
     bottles
     heroic
     lutris
-    deadlock-mod-manager
+    # deadlock-mod-manager
   ];
   
 

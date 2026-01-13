@@ -8,7 +8,8 @@
     shell = pkgs.bash;
     isNormalUser = true;
     description = "Miguel Gavito";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
+    
 
   };
 }
