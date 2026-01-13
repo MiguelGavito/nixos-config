@@ -11,6 +11,12 @@
     extraPackages = with pkgs; [
       # NVIDIA Vulkan
       nvidia-vaapi-driver
+
+      # temporal en lo que checo configuracion
+      # vulkan-tools
+      # vulkan-loader
+      # pkgsi686Linux.vulkan-loader
+      # pkgsi686Linux.vulkan-tools
       # AMD Vulkan (RADV) is enabled by default for integrated GPU
     ];
   };

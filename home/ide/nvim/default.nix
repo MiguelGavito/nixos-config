@@ -32,7 +32,7 @@ in
 
       {
         plugin = nvim-lspconfig;
-        config = toLuaFile ./lua/lsp.lua;
+        config = toLuaFile ./plugins/lsp.lua;
       }
 
       neodev-nvim
@@ -40,7 +40,7 @@ in
       nvim-cmp
       {
         plugin = nvim-cmp;
-        config = toLuaFile ./lua/cmp.lua;
+        config = toLuaFile ./plugins/cmp.lua;
       }
 
       cmp-nvim-lsp
@@ -50,7 +50,7 @@ in
 
       {
         plugin = telescope-nvim;
-        # config = toLuaFile ./lua/telescope.lua;
+        # config = toLuaFile ./pluginstelescope.lua;
       }
 
       telescope-fzf-native-nvim
@@ -62,7 +62,7 @@ in
           p.tree-sitter-c
           p.tree-sitter-cpp
         ]));
-        config = toLuaFile ./lua/treesitter.lua;
+        config = toLuaFile ./plugins/treesitter.lua;
       }
 
       {
@@ -128,20 +128,20 @@ in
       vim.g.mapleader = ' '
       vim.g.maplocalleader = ' '
       ${builtins.readFile ./options.lua}
-      ${builtins.readFile ./lua/harpoon.lua}
-      ${builtins.readFile ./lua/telescope.lua}
-      ${builtins.readFile ./lua/fugitive.lua}  
-      ${builtins.readFile ./lua/undotree.lua}
-      ${builtins.readFile ./lua/toggleterm.lua}
-      ${builtins.readFile ./lua/gitsigns.lua}
-      ${builtins.readFile ./lua/whichkey.lua}
-      ${builtins.readFile ./lua/comment.lua}
-      ${builtins.readFile ./lua/bufferline.lua}
-      ${builtins.readFile ./lua/nvim-tree.lua}
-      ${builtins.readFile ./lua/lualine.lua}
+      ${builtins.readFile ./plugins/harpoon.lua}
+      ${builtins.readFile ./plugins/telescope.lua}
+      ${builtins.readFile ./plugins/fugitive.lua}  
+      ${builtins.readFile ./plugins/undotree.lua}
+      ${builtins.readFile ./plugins/toggleterm.lua}
+      ${builtins.readFile ./plugins/gitsigns.lua}
+      ${builtins.readFile ./plugins/whichkey.lua}
+      ${builtins.readFile ./plugins/comment.lua}
+      ${builtins.readFile ./plugins/bufferline.lua}
+      ${builtins.readFile ./plugins/nvim-tree.lua}
+      ${builtins.readFile ./plugins/lualine.lua}
     '';
       
-    # ${builtins.readFile ./lua/oil.lua}
+    # ${builtins.readFile ./plugins/oil.lua}
   };
 }
 
