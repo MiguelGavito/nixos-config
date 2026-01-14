@@ -23,6 +23,14 @@
       path = "${config.xdg.dataHome}/zsh/history";
     };
     
+    # Source nix profile (needed on non-NixOS systems like Ubuntu)
+    envExtra = ''
+      # Load nix profile if it exists (for standalone home-manager)
+      if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
+      fi
+    '';
+
     # Safety guard for non-interactive shells (SSH, scripts)
     initExtra = ''
       # Only load heavy features in interactive mode

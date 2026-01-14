@@ -9,6 +9,14 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
+        
+    # Source nix profile (needed on non-NixOS systems like Ubuntu)
+    profileExtra = ''
+      # Load nix profile if it exists (for standalone home-manager)
+      if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
+      fi
+    '';
     
     # Add user bin directories to PATH (without duplication)
     bashrcExtra = ''
