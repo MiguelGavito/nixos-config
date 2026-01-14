@@ -12,8 +12,8 @@
       theme = "agnoster";
       plugins = [ 
         "git" 
-        "z"         # Directory jumping (note: zoxide is better and enabled in common.nix)
-        "direnv"    # Auto environment loading
+        # "z" removed - conflicts with zoxide (which is better)
+        # "direnv" removed - already loaded separately in common.nix
       ];
     };
     
@@ -22,6 +22,16 @@
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
+    
+    # Safety guard for non-interactive shells (SSH, scripts)
+    initExtra = ''
+      # Only load heavy features in interactive mode
+      if [[ -o interactive ]]; then
+        # Interactive-only configurations go here
+        # (oh-my-zsh already handles this, but this is a safety guard)
+        :
+      fi
+    '';
   };
 }
 

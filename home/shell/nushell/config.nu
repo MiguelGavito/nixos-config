@@ -3,7 +3,14 @@
 # This file is for nushell-specific settings only
 
 # Starship prompt integration (home-manager manages this)
-source ~/.cache/starship/init.nu
+# Use XDG_CACHE_HOME instead of hard-coded ~/.cache for portability
+let starship_init = ($env.XDG_CACHE_HOME + "/starship/init.nu")
+if ($starship_init | path exists) {
+  source $starship_init
+} else {
+  print "⚠️  Warning: starship init.nu not found at: $starship_init"
+  print "   Run: home-manager switch to regenerate"
+}
 
 # Nushell-specific settings
 $env.config = {
