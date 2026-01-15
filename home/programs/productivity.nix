@@ -3,14 +3,14 @@
 
 {
   home.packages = with pkgs;  [
-    onedrive
+    # onedrive
     nextcloud-client
     
     libreoffice-still
     onlyoffice-desktopeditors
     obsidian
 
-    ferdium
+    # ferdium
 
     calibre
   ];
