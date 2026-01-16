@@ -1,13 +1,12 @@
-{ config, ...}: {
+{config, ...}: {
   home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/s=starship";
 
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
-    enableZshIntegration = true; 
+    enableZshIntegration = true;
     enableNushellIntegration = true;
     settings = {
-
       character = {
         success_symbol = "[>](bold green)";
         error_symbol = "[>](bold red)";
@@ -68,22 +67,114 @@
         style = "bold yellow";
       };
       git_status = {
-        ahead = "🏎💨$count";
-        behind = "😰$count";
+        ahead = "⇣$count";
+        behind = "⇡$count";
         conflicted = "🏳";
         deleted = "🗑";
         disabled = false;
-        diverged = "😵";
+        diverged = "⇕";
         format = "([$all_status$ahead_behind]($style) )";
         ignore_submodules = false;
-        modified = "📝";
-        renamed = "👅";
+        modified = "פֿ";
+        renamed = "";
         staged = "[++($count)](green)";
-        stashed = "📦";
+        stashed = "";
         style = "red bold bg:0xFCA17D";
-        untracked = "🤷";
-        up_to_date = "✓";
+        untracked = "";
+        up_to_date = "✔";
       };
+      directory = {
+        disabled = false;
+        fish_style_pwd_dir_length = 0;
+        format = "[$path]($style)[$read_only]($read_only_style) ";
+        home_symbol = "~";
+        read_only = "";
+        read_only_style = "red";
+        repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) ";
+        style = "cyan bold bg:0xDA627D";
+        truncate_to_repo = true;
+        truncation_length = 3;
+        truncation_symbol = "…/";
+        use_logical_path = true;
+        use_os_path_sep = true;
+      };
+      directory.substitutions = {
+        # Here is how you can shorten some long paths by text replacement;
+        # similar to mapped_locations in Oh My Posh:;
+        "Documents" = "󰈙 ";
+        "Downloads" = " ";
+        "Music" = " ";
+        "Pictures" = " ";
+        # Keep in mind that the order matters. For example:;
+        # "Important Documents" = "  ";
+        # will not be replaced, because "Documents" was already substituted before.;
+        # So either put "Important Documents" before "Documents" or use the substituted version:;
+        # "Important  " = "  ";
+        "Important " = " ";
+      };
+      cmake = {
+        format = "[$symbol($version )]($style)";
+        version_format = "v$raw";
+        symbol = "△ ";
+        style = "bold blue";
+        disabled = false;
+        detect_extensions = [];
+        detect_files = [
+          "CMakeLists.txt"
+          "CMakeCache.txt"
+        ];
+        detect_folders = [];
+      };
+      c = {
+        format = "[$symbol($version(-$name) )]($style)";
+        version_format = "v$raw";
+        style = "fg:149 bold bg:0x86BBD8";
+        symbol = " ";
+        disabled = false;
+        detect_extensions = [
+          "c"
+          "h"
+        ];
+        detect_files = [];
+        detect_folders = [];
+        commands = [
+          [
+            "cc"
+            "--version"
+          ]
+          [
+            "gcc"
+            "--version"
+          ]
+          [
+            "clang"
+            "--version"
+          ]
+        ];
+      };
+      sudo = {
+        format = "[as $symbol]($style)";
+        symbol = "🧙 ";
+        style = "bold blue";
+        allow_windows = false;
+        disabled = true;
+      };
+      # shell = {
+      #   format = "[$indicator]($style) ";
+      #   bash_indicator = "bsh";
+      #   cmd_indicator = "cmd";
+      #   elvish_indicator = "esh";
+      #   fish_indicator = "";
+      #   ion_indicator = "ion";
+      #   nu_indicator = "nu";
+      #   powershell_indicator = "_";
+      #   style = "white bold";
+      #   tcsh_indicator = "tsh";
+      #   unknown_indicator = "mystery shell";
+      #   xonsh_indicator = "xsh";
+      #   zsh_indicator = "zsh";
+      #   disabled = false;
+      # };
     };
   };
 }
