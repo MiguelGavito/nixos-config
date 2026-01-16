@@ -5,8 +5,9 @@
     ../../home/shell/default.nix         # Shell config: tmux, bash, zsh
     ../../home/programs/git.nix          # Git config + SSH
     ../../home/programs/networking.nix   # SSH, wget, network tools
-    ../../home/programs/browsers.nix     # Firefox, Chromium, Brave
+    #../../home/programs/browsers.nix     # Firefox, Chromium, Brave
     ../../home/ide/nvim                  # Neovim config (your main editor)
+    # ../../home/programs/xdg.nix
   ];
 
   # lanave-specific overrides only
