@@ -74,7 +74,7 @@
         staged     = " ";
         stashed    = " ";
         untracked  = " ";
-        up_to_date = "";
+        up_to_date = " ";
       };
       directory = {
         disabled = false;

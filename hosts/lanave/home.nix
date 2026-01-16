@@ -8,7 +8,12 @@
     #../../home/programs/browsers.nix     # Firefox, Chromium, Brave
     ../../home/ide/nvim                  # Neovim config (your main editor)
     # ../../home/programs/xdg.nix
+    ../../home/desktop/base 
+    ../../home/desktop/niri
   ];
+
+  # Enable Niri module
+  modules.desktop.niri.enable = true;
 
   # lanave-specific overrides only
   fonts.fontconfig.enable = true;

@@ -1,9 +1,11 @@
-
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   # Shared Wayland desktop components for Hyprland and Niri
-  
+
   # Install packages
   home.packages = with pkgs; [
     fuzzel
@@ -20,56 +22,64 @@
     networkmanagerapplet
   ];
 
-  # Autostart services via systemd user
+  # Autostart services via systemd user (ONLY for Wayland sessions)
   systemd.user.services = {
     waybar = {
-      Unit = { 
-        Description = "Waybar status bar"; 
-        After = [ "graphical-session.target" ]; 
-      }; 
-      Service = { 
-        ExecStart = "${pkgs.waybar}/bin/waybar"; 
-        Restart = "on-failure"; 
-      }; 
-      Install = { WantedBy = [ "graphical-session.target" ]; };
+      Unit = {
+        Description = "Waybar status bar";
+        After = ["graphical-session.target"];
+        # Only start in Wayland sessions
+        ConditionEnvironment = "XDG_SESSION_TYPE=wayland";
+      };
+      Service = {
+        ExecStart = "${pkgs.waybar}/bin/waybar";
+        Restart = "on-failure";
+      };
+      Install = {WantedBy = ["graphical-session.target"];};
     };
 
     mako = {
-      Unit = { 
-        Description = "Mako notification daemon"; 
-        After = [ "graphical-session.target" ]; 
-      }; 
-      Service = { 
-        ExecStart = "${pkgs.mako}/bin/mako"; 
-        Restart = "on-failure"; 
-      }; 
-      Install = { WantedBy = [ "graphical-session.target" ]; };
+      Unit = {
+        Description = "Mako notification daemon";
+        After = ["graphical-session.target"];
+        # Only start in Wayland sessions
+        ConditionEnvironment = "XDG_SESSION_TYPE=wayland";
+      };
+      Service = {
+        ExecStart = "${pkgs.mako}/bin/mako";
+        Restart = "on-failure";
+      };
+      Install = {WantedBy = ["graphical-session.target"];};
     };
 
     swaybg = {
-      Unit = { 
-        Description = "Swaybg wallpaper"; 
-        After = [ "graphical-session.target" ]; 
-      }; 
-      Service = { 
+      Unit = {
+        Description = "Swaybg wallpaper";
+        After = ["graphical-session.target"];
+        # Only start in Wayland sessions
+        ConditionEnvironment = "XDG_SESSION_TYPE=wayland";
+      };
+      Service = {
         # Use XDG data directory for wallpaper (wallpaper.png from project root)
-        ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.xdg.dataHome}/wallpapers/wallpaper.png"; 
-        Restart = "on-failure"; 
-      }; 
-      Install = { WantedBy = [ "graphical-session.target" ]; };
+        ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.xdg.dataHome}/wallpapers/wallpaper.png";
+        Restart = "on-failure";
+      };
+      Install = {WantedBy = ["graphical-session.target"];};
     };
 
     nm-applet = {
-      Unit = { 
-        Description = "NetworkManager Applet"; 
-        After = [ "graphical-session.target" "network.target" ]; 
-      }; 
-      Service = { 
+      Unit = {
+        Description = "NetworkManager Applet";
+        After = ["graphical-session.target" "network.target"];
+        # Only start in Wayland sessions (KDE has its own network manager)
+        ConditionEnvironment = "XDG_SESSION_TYPE=wayland";
+      };
+      Service = {
         ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable";
         Restart = "on-failure";
         RestartSec = 2;
-      }; 
-      Install = { WantedBy = [ "graphical-session.target" ]; };
+      };
+      Install = {WantedBy = ["graphical-session.target"];};
     };
   };
 
@@ -85,10 +95,10 @@
         horizontal-pad = 10;
       };
       colors = {
-        background = "1e1e2eff";      # Catppuccin dark
-        text = "cdd6f4ff";            # Light text
-        match = "a6e3a1ff";           # Green matches
-        selection = "89b4faff";       # Blue selection
+        background = "1e1e2eff"; # Catppuccin dark
+        text = "cdd6f4ff"; # Light text
+        match = "a6e3a1ff"; # Green matches
+        selection = "89b4faff"; # Blue selection
         selection-text = "1e1e2eff";
         border = "89b4faff";
       };
@@ -97,7 +107,7 @@
         radius = 8;
       };
     };
-  }; 
+  };
   # Deploy Waybar config
   xdg.configFile = {
     "waybar/config".source = ./waybar/config.jsonc;
