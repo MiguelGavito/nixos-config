@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 {
   imports = [
     ../../home/shell/default.nix         # Shell config: tmux, bash, zsh
