@@ -8,8 +8,8 @@
     enableNushellIntegration = true;
     settings = {
       character = {
-        success_symbol = "[>](bold green)";
-        error_symbol = "[>](bold red)";
+        success_symbol = "[➜](bold green)";
+        error_symbol   = "[➜](bold red)";
       };
 
       hostname = {
@@ -44,7 +44,7 @@
         style = "green bold";
         only_detached = true;
         disabled = false;
-        tag_symbol = " 🏷  ";
+        tag_symbol = "  ";
         tag_disabled = true;
       };
       git_metrics = {
@@ -58,7 +58,7 @@
         am = "AM";
         am_or_rebase = "AM/REBASE";
         bisect = "BISECTING";
-        cherry_pick = "🍒PICKING(bold red)";
+        cherry_pick = " CHERRY-PICK";
         disabled = false;
         format = "([$state( $progress_current/$progress_total)]($style)) ";
         merge = "MERGING";
@@ -67,21 +67,14 @@
         style = "bold yellow";
       };
       git_status = {
-        ahead = "⇣$count";
-        behind = "⇡$count";
-        conflicted = "🏳";
-        deleted = "🗑";
-        disabled = false;
-        diverged = "⇕";
-        format = "([$all_status$ahead_behind]($style) )";
-        ignore_submodules = false;
-        modified = "פֿ";
-        renamed = "";
-        staged = "[++($count)](green)";
-        stashed = "";
-        style = "red bold bg:0xFCA17D";
-        untracked = "";
-        up_to_date = "✔";
+        conflicted = "󰅙 ";
+        deleted    = " ";
+        modified   = " ";
+        renamed    = " ";
+        staged     = " ";
+        stashed    = " ";
+        untracked  = " ";
+        up_to_date = "";
       };
       directory = {
         disabled = false;
@@ -105,6 +98,9 @@
         "Downloads" = " ";
         "Music" = " ";
         "Pictures" = " ";
+        "Videos"    = " ";
+        "Projects"  = " ";
+        ".config"   = " ";
         # Keep in mind that the order matters. For example:;
         # "Important Documents" = "  ";
         # will not be replaced, because "Documents" was already substituted before.;
@@ -115,7 +111,7 @@
       cmake = {
         format = "[$symbol($version )]($style)";
         version_format = "v$raw";
-        symbol = "△ ";
+        symbol = "󰔷 ";
         style = "bold blue";
         disabled = false;
         detect_extensions = [];
@@ -154,7 +150,7 @@
       };
       sudo = {
         format = "[as $symbol]($style)";
-        symbol = "🧙 ";
+        symbol = " ";
         style = "bold blue";
         allow_windows = false;
         disabled = true;
