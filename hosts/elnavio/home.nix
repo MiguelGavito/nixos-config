@@ -6,7 +6,6 @@
   # Force Home Manager to overwrite existing files on first run
   xdg.configFile."mimeapps.list".force = true;
   xdg.configFile."user-dirs.dirs".force = true;
-  home.file.".mozilla/firefox/profiles.ini".force = true;
 
   programs.git.settings = {
     user.name = "MiguelGavito";
