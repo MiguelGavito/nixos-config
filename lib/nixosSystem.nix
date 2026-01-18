@@ -12,7 +12,8 @@
 in
   nixpkgs.lib.nixosSystem {
     inherit system;
-    specialArgs = inputs // specialArgs // {inherit username;};
+    # Ensure lib and mylib are available to all modules to avoid recursion
+    specialArgs = inputs // specialArgs // { inherit username lib mylib; };
 
     modules =
       nixos-modules
@@ -21,7 +22,8 @@ in
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = inputs // specialArgs // {inherit username;};
+          # Propagate lib/mylib to home-manager modules as well
+          home-manager.extraSpecialArgs = inputs // specialArgs // { inherit username lib mylib; };
           home-manager.users.${username}.imports = home-modules;
         }
       ]);

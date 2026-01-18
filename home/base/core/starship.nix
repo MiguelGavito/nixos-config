@@ -1,29 +1,31 @@
-{
-  programs.starship = {
-    enable = true;
+{config, ...}: {
+	home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
 
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    enableNushellIntegration = true;
+	programs.starship = {
+		enable = true;
+		enableBashIntegration = true;
+		enableZshIntegration = true;
+		enableNushellIntegration = true;
+		settings = {
+			character = {
+				success_symbol = "[>](bold green)";
+				error_symbol = "[>](bold red)";
+			};
 
-    # https://starship.rs/config/
-    settings = {
-      # Get editor completions based on the config schema
-      "$schema" = "https://starship.rs/config-schema.json";
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
-      };
-      # I never rely on the defaults, so this module is useless to me—disabled.
-      # I prefer adding --project, --region to very gcloud/aws command.
-      aws.disabled = true;
-      gcloud.disabled = true;
-
-      kubernetes = {
-        symbol = "⛵";
-        disabled = false;
-      };
-      os.disabled = false;
-    };
-  };
+			hostname = {
+				disabled = false;
+				format = "[$ssh_symbol](blue dimmed bold)[$hostname]($style) ";
+				ssh_only = false;
+				style = "green dimmed bold";
+				trim_at = ".";
+			};
+			username = {
+				format = "[$user]($style) ";
+				show_always = true;
+				style_root = "red bold bg:0x9A348E";
+				style_user = "yellow bold bg:0x9A348E";
+				disabled = false;
+			};
+		};
+	};
 }

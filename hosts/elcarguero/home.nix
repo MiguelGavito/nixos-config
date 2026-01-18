@@ -7,8 +7,9 @@
   # Common settings like username/homeDirectory are set in outputs/x86_64-linux/src/elcarguero.nix
 
   imports = [
-    ../../home/shell
-    ../../home/ide/nvim
+    ../../home/base/core         # Core HM config & essentials
+    ../../home/base/tui          # Shells, Neovim, common CLI tools
+    # Add ../../home/base/gui if you want Kitty here
   ];
 
   # Optional: fonts for terminal/Nerd Fonts
