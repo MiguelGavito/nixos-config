@@ -5,18 +5,24 @@
   ...
 }: {
   imports = [
-    ../../home/shell/default.nix # Shell config: tmux, bash, zsh
-    ../../home/programs/git.nix # Git config + SSH
-    ../../home/programs/networking.nix # SSH, wget, network tools
-    #../../home/programs/browsers.nix     # Firefox, Chromium, Brave
-    ../../home/ide/nvim # Neovim config (your main editor)
-    # ../../home/programs/xdg.nix
-    ../../home/desktop/base
-    ../../home/desktop/niri
+    # New portable TUI structure
+    ../../home/base/core          # Core Home Manager config
+    ../../home/base/tui           # Shells, Neovim, CLI tools (portable)
+    
+    # Linux-specific
+    ../../home/linux/gui/wayland  # Waybar, Mako (for Niri)
+    
+    # Desktop compositors
+    ../../home/desktop/niri       # Niri config
+    
+    # Still from old structure (to migrate later)
+    ../../home/programs/git.nix          # Git config + SSH
+    ../../home/programs/networking.nix   # SSH, wget, network tools
   ];
 
-  # Enable Niri module
+  # Enable modules
   modules.desktop.niri.enable = true;
+  modules.linux.wayland.enable = true;  # Enable Waybar, Mako for Niri
 
   # lanave-specific overrides only
   fonts.fontconfig.enable = true;

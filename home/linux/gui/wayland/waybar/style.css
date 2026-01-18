@@ -1,0 +1,124 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+    font-size: 16px;
+
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent; 
+    color: white;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: black;
+    color: white;
+    border-bottom: 3px solid transparent;
+    border-radius: 20px;
+}
+
+#workspaces button.active {
+    border-bottom: 3px solid #007aff;
+}
+
+#clock {
+    background-color: #2f2f30;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#battery {
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#network {
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#pulseaudio {
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#language {
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#window {
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+window#waybar.kitty {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+window#waybar.brave {
+    background-color: #eeeeee;
+    color: #000000;
+}
+
+/* make window module transparent when no windows present */
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+.modules-right {
+    border-radius: 20px;
+    background-color: #1e1e1e;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.modules-left {
+    border-radius: 20px;
+    background-color: #1e1e1e;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top:  1px;
+    padding-bottom: 1px;
+}
+
+#backlight-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+#backlight-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background: black;
+}
+#backlight-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background: blue;
+}
