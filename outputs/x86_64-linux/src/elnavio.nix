@@ -8,6 +8,9 @@
 let
   username = "miguelagg";
   
+  # Expand base/core modules at flake level to avoid circular dependency
+  core-modules = mylib.scanPaths (mylib.relativeToRoot "home/base/core");
+
   modules = {
     nixos-modules = [
       (mylib.relativeToRoot "hosts/elnavio/configuration.nix")
@@ -34,10 +37,11 @@ let
       }
     ];
     
+        
     home-modules = [
       (mylib.relativeToRoot "hosts/elnavio/home.nix")
-      # New portable layers
-      (mylib.relativeToRoot "home/base/core")
+      # New portable layers - core modules expanded here
+    ] ++ core-modules ++ [
       (mylib.relativeToRoot "home/base/tui")
       (mylib.relativeToRoot "home/base/gui")
 
@@ -57,7 +61,7 @@ let
 in
 {
   elnavio = mylib.nixosSystem (modules // args // { 
-    inherit system username;
+    inherit system username mylib;
     specialArgs = { inherit username; };
   });
 }

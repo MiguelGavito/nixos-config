@@ -1,3 +1,4 @@
+
 {
   description = "Nixos configuration of MiguelGavito";
 
@@ -9,6 +10,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
     catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
@@ -21,3 +25,4 @@
 
   outputs = inputs: import ./outputs inputs;
 }
+

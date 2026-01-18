@@ -1,3 +1,4 @@
+
 {
   config,
   pkgs,
@@ -7,7 +8,7 @@
   # Common settings like username/homeDirectory are set in outputs/x86_64-linux/src/labahia.nix
 
   imports = [
-    ../../home/base/core         # Core HM config & essentials
+    # Core imported at flake level to avoid circular dependency
     ../../home/base/tui          # Shells, Neovim, common CLI tools
     # Add ../../home/base/gui if you want Kitty here
   ];
@@ -18,3 +19,4 @@
     nerd-fonts.jetbrains-mono
   ];
 }
+

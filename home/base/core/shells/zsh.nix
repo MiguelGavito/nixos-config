@@ -33,7 +33,7 @@
     '';
 
     # Safety guard for non-interactive shells (SSH, scripts)
-    initExtra = ''
+    initContent = ''
       # Only load heavy features in interactive mode
       if [[ -o interactive ]]; then
         # Interactive-only configurations go here

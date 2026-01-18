@@ -1,6 +1,8 @@
+
 {
   inputs,
   lib,
+  mylib,
   system,
   nixos-modules,
   home-modules ? [],
@@ -8,12 +10,11 @@
   specialArgs ? {},
   ...
 }: let
-  inherit (inputs) nixpkgs home-manager;
+  inherit (inputs) nixpkgs home-manager catppuccin;
 in
   nixpkgs.lib.nixosSystem {
     inherit system;
-    # Ensure lib and mylib are available to all modules to avoid recursion
-    specialArgs = inputs // specialArgs // { inherit username lib mylib; };
+    specialArgs = inputs // specialArgs // { inherit username mylib catppuccin; };
 
     modules =
       nixos-modules
@@ -22,9 +23,10 @@ in
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          # Propagate lib/mylib to home-manager modules as well
-          home-manager.extraSpecialArgs = inputs // specialArgs // { inherit username lib mylib; };
+          # Pass specialArgs including catppuccin for home-manager modules
+          home-manager.extraSpecialArgs = inputs // specialArgs // { inherit username mylib catppuccin; };
           home-manager.users.${username}.imports = home-modules;
         }
       ]);
   }
+

@@ -1,3 +1,4 @@
+
 {
   config,
   pkgs,
@@ -5,8 +6,7 @@
   ...
 }: {
   imports = [
-    # New portable TUI structure
-    ../../home/base/core          # Core Home Manager config
+    # New portable TUI structure (core imported at flake level)
     ../../home/base/tui           # Shells, Neovim, CLI tools (portable)
     ../../home/base/gui           # Terminal (Kitty) and cross-platform GUI
     
@@ -33,3 +33,4 @@
     user.email = "mgavitogzz@gmail.com";
   };
 }
+
