@@ -4,5 +4,7 @@
   imports = [
     ./home.nix
     ./git
+    ./btop.nix
+    ./yazi.nix
   ];
 }

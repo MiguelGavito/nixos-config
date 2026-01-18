@@ -8,6 +8,7 @@
     # New portable TUI structure
     ../../home/base/core          # Core Home Manager config
     ../../home/base/tui           # Shells, Neovim, CLI tools (portable)
+    ../../home/base/gui           # Terminal (Kitty) and cross-platform GUI
     
     # Linux-specific
     ../../home/linux/gui/wayland  # Waybar, Mako (for Niri)
@@ -18,8 +19,8 @@
   ];
 
   # Enable modules
-  modules.desktop.niri.enable = true;
-  modules.linux.wayland.enable = true;  # Enable Waybar, Mako for Niri
+  modules.desktop.niri.enable = false;
+  modules.linux.wayland.enable = false;  # Enable Waybar, Mako for Niri
 
   # lanave-specific overrides only
   fonts.fontconfig.enable = true;

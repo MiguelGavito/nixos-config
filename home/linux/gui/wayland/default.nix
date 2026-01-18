@@ -6,13 +6,16 @@
 }: 
 let
   cfg = config.modules.linux.wayland;
+  hyprEnabled = (config.modules.desktop.hyprland.enable or false);
+  niriEnabled = (config.modules.desktop.niri.enable or false);
 in
 {
   options.modules.linux.wayland = {
     enable = lib.mkEnableOption "Wayland desktop base (Waybar, Mako, Swaybg)";
   };
 
-  config = lib.mkIf cfg.enable {
+  # Only enable when requested AND a Wayland compositor is enabled
+  config = lib.mkIf (cfg.enable && (hyprEnabled || niriEnabled)) {
     # Shared Wayland desktop components for Hyprland and Niri
     # This should ONLY be enabled for wayland compositors, NOT for KDE
 
