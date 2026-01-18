@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # later check ryan4yin git configuration
   home.packages = [ pkgs.gh ];
 
   programs.git = {
