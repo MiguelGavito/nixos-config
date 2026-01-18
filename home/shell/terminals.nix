@@ -1,11 +1,8 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 # terminals
-
 let
   font = "JetBrainsMono Nerd Font";
-in
-{
+in {
   programs.kitty = {
     enable = true;
     font = {
@@ -29,7 +26,7 @@ in
       selection_background = "#d79921";
       cursor = "#ebdbb2";
       cursor_text_color = "#282828";
-      
+
       # Black
       color0 = "#282828";
       color8 = "#928374";

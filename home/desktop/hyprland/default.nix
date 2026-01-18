@@ -1,16 +1,16 @@
-
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.desktop.hyprland;
-in 
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.desktop.hyprland;
+in {
   options.modules.desktop.hyprland = {
     enable = lib.mkEnableOption "Hyprland compositor";
   };
 
   config = lib.mkIf cfg.enable {
-
     # Deploy Hyprland configuration
     xdg.configFile."hypr/hyprland.conf".source = ./conf/hyprland.conf;
 

@@ -1,5 +1,4 @@
-{ pkgs, ...}:
-
+{pkgs, ...}:
 # Common shell tools and integrations
 {
   home.packages = with pkgs; [
@@ -13,9 +12,9 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-    enableBashIntegration = true;       
+    enableBashIntegration = true;
     enableZshIntegration = true;
-    enableNushellIntegration = true; 
+    enableNushellIntegration = true;
   };
 
   # Smart cd - remembers directories you use most
@@ -38,7 +37,7 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    enableNushellIntegration = false; 
+    enableNushellIntegration = false;
     git = true;
     icons = "auto";
   };

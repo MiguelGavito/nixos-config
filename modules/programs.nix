@@ -1,13 +1,15 @@
-{ config, pkgs, ... }:
-
 {
-  # install kde for connect with phone  
+  config,
+  pkgs,
+  ...
+}: {
+  # install kde for connect with phone
   programs.kdeconnect.enable = true;
 
   # this is the steam configuration
   programs.steam = {
     enable = true;
-    gamescopeSession.enable = true;    
+    gamescopeSession.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -19,8 +21,7 @@
   programs.gamemode.enable = true;
 
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = 
-      "home/user/.steam/root/compatibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "home/user/.steam/root/compatibilitytools.d";
   };
   # para que tu programa en steam pueda usar estos modos hay que escribir
   # gamemoderun %command%
@@ -28,6 +29,4 @@
   # gamescope %command%
 
   # end of steam configuration
-
- 
 }

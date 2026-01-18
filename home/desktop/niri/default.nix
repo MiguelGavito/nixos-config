@@ -1,15 +1,16 @@
-
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.desktop.niri;
-in 
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.desktop.niri;
+in {
   options.modules.desktop.niri = {
     enable = lib.mkEnableOption "Niri compositor";
   };
 
   config = lib.mkIf cfg.enable {
-
     # Deploy Niri configuration
     xdg.configFile."niri/config.kdl".source = ./conf/config.kdl;
 

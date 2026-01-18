@@ -1,12 +1,14 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.desktops.niri.enable = lib.mkEnableOption "Niri Desktop";
 
   config = lib.mkIf config.desktops.niri.enable {
-    
     services.xserver.enable = true;
-    
+
     #services.displayManager.sddm.enable = false;
     services.displayManager.gdm.enable = true;
 
@@ -15,11 +17,11 @@
 
     # Compositor y esenciales mínimos
     programs.niri.enable = true;
-    
+
     # Enable GNOME Keyring for credential storage (consistency with GNOME)
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.swaylock.enableGnomeKeyring = true;
-    
+
     # Force Niri to use AMD iGPU (not NVIDIA)
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";

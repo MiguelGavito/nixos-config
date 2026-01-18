@@ -1,10 +1,7 @@
-{  pkgs, ... }:
-
-let
+{pkgs, ...}: let
   toLua = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-in
-{
+in {
   programs.neovim = {
     enable = true;
 
@@ -20,16 +17,13 @@ in
       #clipboard
       wl-clipboard
       xclip
-      
+
       #telescope
       ripgrep
       fd
-      
-
     ];
 
     plugins = with pkgs.vimPlugins; [
-
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugins/lsp.lua;
@@ -56,12 +50,12 @@ in
       telescope-fzf-native-nvim
 
       {
-        plugin = (nvim-treesitter.withPlugins (p: [
+        plugin = nvim-treesitter.withPlugins (p: [
           p.tree-sitter-lua
           p.tree-sitter-nix
           p.tree-sitter-c
           p.tree-sitter-cpp
-        ]));
+        ]);
         config = toLuaFile ./plugins/treesitter.lua;
       }
 
@@ -101,7 +95,7 @@ in
         plugin = nvim-autopairs;
         config = toLua ''require("nvim-autopairs").setup()'';
       }
-    
+
       {
         plugin = comment-nvim;
       }
@@ -121,7 +115,6 @@ in
       {
         plugin = lualine-nvim;
       }
-
     ];
 
     extraLuaConfig = ''
@@ -130,7 +123,7 @@ in
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugins/harpoon.lua}
       ${builtins.readFile ./plugins/telescope.lua}
-      ${builtins.readFile ./plugins/fugitive.lua}  
+      ${builtins.readFile ./plugins/fugitive.lua}
       ${builtins.readFile ./plugins/undotree.lua}
       ${builtins.readFile ./plugins/toggleterm.lua}
       ${builtins.readFile ./plugins/gitsigns.lua}
@@ -140,8 +133,7 @@ in
       ${builtins.readFile ./plugins/nvim-tree.lua}
       ${builtins.readFile ./plugins/lualine.lua}
     '';
-      
+
     # ${builtins.readFile ./plugins/oil.lua}
   };
 }
-

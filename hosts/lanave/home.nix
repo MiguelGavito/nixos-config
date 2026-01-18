@@ -1,14 +1,17 @@
-
-{ config, pkgs, username, ... }:
 {
+  config,
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
-    ../../home/shell/default.nix         # Shell config: tmux, bash, zsh
-    ../../home/programs/git.nix          # Git config + SSH
-    ../../home/programs/networking.nix   # SSH, wget, network tools
+    ../../home/shell/default.nix # Shell config: tmux, bash, zsh
+    ../../home/programs/git.nix # Git config + SSH
+    ../../home/programs/networking.nix # SSH, wget, network tools
     #../../home/programs/browsers.nix     # Firefox, Chromium, Brave
-    ../../home/ide/nvim                  # Neovim config (your main editor)
+    ../../home/ide/nvim # Neovim config (your main editor)
     # ../../home/programs/xdg.nix
-    ../../home/desktop/base 
+    ../../home/desktop/base
     ../../home/desktop/niri
   ];
 
@@ -26,4 +29,3 @@
     user.email = "mgavitogzz@gmail.com";
   };
 }
-

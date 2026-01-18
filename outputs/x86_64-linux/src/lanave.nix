@@ -1,18 +1,15 @@
-
 {
   inputs,
   lib,
   system,
   ...
-}:
-let
+}: let
   inherit (inputs) nixpkgs home-manager;
   username = "mariolo";
-in
-{
+in {
   lanave = home-manager.lib.homeManagerConfiguration {
     pkgs = nixpkgs.legacyPackages.${system};
-    extraSpecialArgs = inputs // { inherit username; };
+    extraSpecialArgs = inputs // {inherit username;};
     modules = [
       ../../../hosts/lanave/home.nix
       {

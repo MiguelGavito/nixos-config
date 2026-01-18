@@ -1,16 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
+{...}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/default.nix
+  ];
 
-{ ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/default.nix
-    ];
-    
   networking.hostName = "elnavio";
   time.timeZone = "America/Monterrey";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -29,11 +26,10 @@
   # configuration for a asus tuf a15
   # is on the imports
 
-  # MOVER LA CONFIGURACION DEN UN IMPORT O MODULO SEPARADO, QUIZAS QUE SEA EN EL USUARIO 
+  # MOVER LA CONFIGURACION DEN UN IMPORT O MODULO SEPARADO, QUIZAS QUE SEA EN EL USUARIO
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
 
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -54,5 +50,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }

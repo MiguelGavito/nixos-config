@@ -1,12 +1,10 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     wget
   ];
 
   programs.ssh = {
-    enable = true; 
+    enable = true;
     enableDefaultConfig = false;
 
     matchBlocks = {
@@ -30,8 +28,8 @@
 
       "github.com" = {
         user = "git";
-	      identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
-    }; 
+    };
   };
 }

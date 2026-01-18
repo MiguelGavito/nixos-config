@@ -1,5 +1,4 @@
-{ lib }:
-{
+{lib}: {
   username = "miguelagg";
   userfullname = "Miguel Gavito";
   useremail = "mgavitogzz@gmail.com";
@@ -9,6 +8,5 @@
   ];
   secondaryAuthorizedKeys = [
     # backup later
-
   ];
 }

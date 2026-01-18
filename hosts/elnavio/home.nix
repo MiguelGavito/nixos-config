@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Only elnavio-specific home-manager settings here
   # Common configs are imported via outputs/x86_64-linux/src/elnavio.nix
   # Force Home Manager to overwrite existing files on first run
@@ -18,14 +20,14 @@
       cursor-theme = "Adwaita";
       cursor-size = 24;
     };
-  
+
     # Atajos de teclado personalizados
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];
     };
-    
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Terminal";
       command = "kitty";
@@ -35,7 +37,6 @@
 
   home.stateVersion = "25.11";
 
-
   # Ensure icon fonts for Waybar (Font Awesome/Nerd Fonts)
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
@@ -43,4 +44,3 @@
     adwaita-icon-theme
   ];
 }
-

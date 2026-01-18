@@ -4,65 +4,62 @@
   catppuccin-bat,
   ...
 }: {
+  home.packages =
+    (with pkgs; [
+      # archives
+      zip
+      unzip
+      p7zip
 
+      # utils
+      ripgrep
+      yq-go # https://github.com/mikefarah/yq
+      htop
+      file
+      tree
 
-  home.packages = (with pkgs; [
-    # archives
-    zip
-    unzip
-    p7zip
+      # misc
+      libnotify
+      wineWowPackages.wayland
+      xdg-utils
+      graphviz
 
-    # utils
-    ripgrep
-    yq-go # https://github.com/mikefarah/yq
-    htop
-    file
-    tree 
+      # file
+      nautilus
+      file-roller
 
-    # misc
-    libnotify
-    wineWowPackages.wayland
-    xdg-utils
-    graphviz
+      # social
+      discord
+      ferdium
 
-    # file 
-    nautilus
-    file-roller
+      # art design
+      blender
+      musescore
 
-    # social
-    discord
-    ferdium
+      # IDE
+      # insomnia
 
-    
-    # art design
-    blender
-    musescore
-    
-    # IDE
-    # insomnia
+      # cloud native
+      docker-compose
+      kubectl
 
-    # cloud native
-    docker-compose
-    kubectl
+      nodejs
+      # nodePackages.npm
+      # nodePackages.pnpm
+      # yarn
 
-    nodejs
-    # nodePackages.npm
-    # nodePackages.pnpm
-    # yarn
-
-    # db related
-    dbeaver-bin
-    mycli
-    pgcli
-  ])
-  ++
-  (with pkgs.kdePackages; [
-    kate
-    dolphin
-    ark
-    kio-extras
-    ffmpegthumbs
-  ]);
+      # db related
+      dbeaver-bin
+      mycli
+      pgcli
+    ])
+    ++ (with pkgs.kdePackages; [
+      kate
+      dolphin
+      ark
+      kio-extras
+      ffmpegthumbs
+    ]);
 
   programs = {
     tmux = {

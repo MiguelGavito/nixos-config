@@ -4,6 +4,7 @@
     bottles
     heroic
     lutris
+    hytale-launcher
     # deadlock-mod-manager
   ];
   

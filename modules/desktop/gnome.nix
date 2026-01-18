@@ -1,8 +1,11 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.desktops.gnome.enable = lib.mkEnableOption "GNOME Desktop";
-  
+
   options.desktops.gnome.cursorTheme = lib.mkOption {
     type = lib.types.str;
     default = "Adwaita";
@@ -11,17 +14,16 @@
 
   config = lib.mkIf config.desktops.gnome.enable {
     services.xserver.enable = true;
-  
 
     # services.displayManager.gdm.wayland = false;
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
-     
+
     programs.dconf.enable = true;
 
     # Portals para integración
     xdg.portal.enable = true;
-    xdg.portal.extraPortals = with pkgs; [ 
+    xdg.portal.extraPortals = with pkgs; [
       xdg-desktop-portal-gnome
     ];
 
@@ -35,7 +37,5 @@
       gsettings-desktop-schemas
       dconf
     ];
-
   };
 }
-

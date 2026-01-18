@@ -1,10 +1,9 @@
-{ ... }:
-{
+{...}: {
   imports = [
-    ./bash.nix        
+    ./bash.nix
     ./zsh.nix
     ./nushell
-    ./common.nix      # Tool integrations
+    ./common.nix # Tool integrations
     ./starship.nix
     ./terminals.nix
     ./aliases.nix

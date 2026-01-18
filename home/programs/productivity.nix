@@ -1,11 +1,8 @@
-
-{ pkgs, ... }:
-
-{
-  home.packages = with pkgs;  [
+{pkgs, ...}: {
+  home.packages = with pkgs; [
     # onedrive
     nextcloud-client
-    
+
     libreoffice-still
     onlyoffice-desktopeditors
     obsidian

@@ -1,6 +1,4 @@
-
-{ ... }:
-
+{...}:
 # Wayland-specific environment variables
 # Import this ONLY in hosts that use Wayland compositors:
 # - Hyprland
@@ -19,10 +17,10 @@
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
-    
+
     # Cursor settings for Wayland
     XCURSOR_SIZE = "18";
-    
+
     # GTK theme for Wayland
     GTK_THEME = "Adwaita:dark";
   };

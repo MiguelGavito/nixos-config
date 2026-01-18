@@ -15,6 +15,14 @@ let
       (mylib.relativeToRoot "modules/default.nix")
       inputs.nixos-hardware.nixosModules.asus-fa507nv
       {
+        # Overlay to add hytale-launcher to pkgs
+        nixpkgs.overlays = [
+          (final: prev: {
+            hytale-launcher = inputs.hytale-launcher.packages.${system}.default;
+          })
+        ];
+      }
+      {
         # Install BOTH desktop environments
         # You'll choose which one at GDM login
         desktops.niri.enable = true;

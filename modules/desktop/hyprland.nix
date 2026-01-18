@@ -1,17 +1,20 @@
-{ config, lib, pkgs, hyprland, ... }: 
-
 {
+  config,
+  lib,
+  pkgs,
+  hyprland,
+  ...
+}: {
   options.desktops.hyprland.enable = lib.mkEnableOption "HYPRLAND Desktop";
   config = lib.mkIf config.desktops.hyprland.enable {
-
     services.xserver.enable = true;
-    
+
     #services.displayManager.sddm.enable = false; # or greetd
     services.displayManager.gdm.enable = true;
 
     #services.desktopManager.plasma6.enable = false;
     #services.desktopManager.gnome.enable = false;
-    
+
     #a partir de aqui estoy riciendo hyprland
     programs.hyprland.enable = true;
     programs.hyprland.package = hyprland.packages."${pkgs.system}".hyprland;
@@ -40,11 +43,9 @@
       swaylock
       pamixer
 
-
       brightnessctl
       playerctl
-      
-      
+
       grim
       slurp
     ];

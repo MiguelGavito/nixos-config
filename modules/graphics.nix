@@ -1,7 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   # Drivers for the Graphic card
 
   # Enable OpenGL
@@ -21,11 +23,13 @@
     ];
   };
 
- /*  hardware.opengl = {
+  /*
+     hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32 = true;
-  }; */
+  };
+  */
 
   # Configure the NVIDIA driver
   hardware.nvidia = {
@@ -41,7 +45,7 @@
     prime = {
       offload = {
         enable = true;
-	      enableOffloadCmd = true;
+        enableOffloadCmd = true;
       };
       # Use the Bus IDs
       amdgpuBusId = lib.mkDefault "PCI:1:0:0";
@@ -49,5 +53,5 @@
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 }
