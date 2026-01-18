@@ -36,15 +36,20 @@ let
     
     home-modules = [
       (mylib.relativeToRoot "hosts/elnavio/home.nix")
-      (mylib.relativeToRoot "home/default.nix")
-      # Import desktop configs - each defines its own module option
+      # New portable layers
+      (mylib.relativeToRoot "home/base/core")
+      (mylib.relativeToRoot "home/base/tui")
+      (mylib.relativeToRoot "home/base/gui")
+
+      # Wayland base (Waybar/Mako) gated by compositor flags
+      (mylib.relativeToRoot "home/linux/gui/wayland")
+
+      # Desktop compositor
       (mylib.relativeToRoot "home/desktop/niri")
-      # Uncomment for other desktops:
-      # (mylib.relativeToRoot "home/desktop/hyprland")
+
       {
-        # Enable Niri as primary desktop
         modules.desktop.niri.enable = true;
-        # modules.desktop.hyprland.enable = true;  # Uncomment for Hyprland
+        modules.linux.wayland.enable = true;
       }
     ];
   };

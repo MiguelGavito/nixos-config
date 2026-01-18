@@ -1,7 +1,17 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # Core CLI utilities
     wget
+    ripgrep
+    yq-go
+    file
+    tree
+    jq
+    fastfetch
+
+    # Extras
+    aria2
   ];
 
   programs.ssh = {
@@ -24,5 +34,15 @@
         identityFile = "~/.ssh/id_ed25519";
       };
     };
+  };
+
+  programs.skim = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "rg --files --hidden";
+    changeDirWidgetOptions = [
+      "--preview 'exa --icons --git --color always -T -L 3 {} | head -200'"
+      "--exact"
+    ];
   };
 }
