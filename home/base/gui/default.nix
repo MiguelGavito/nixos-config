@@ -4,7 +4,7 @@
   # Works on Linux and macOS
   
   imports = [
-    # ./terminal will have Kitty (cross-platform)
+    ./terminal     # Kitty (cross-platform terminal)
     # ./browsers will have Firefox, Chrome (optional)
   ];
 }

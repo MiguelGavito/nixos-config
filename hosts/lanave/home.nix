@@ -14,10 +14,7 @@
     
     # Desktop compositors
     ../../home/desktop/niri       # Niri config
-    
-    # Still from old structure (to migrate later)
-    ../../home/programs/git.nix          # Git config + SSH
-    ../../home/programs/networking.nix   # SSH, wget, network tools
+    # Legacy imports removed (migrated to base/core & base/tui)
   ];
 
   # Enable modules

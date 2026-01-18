@@ -7,7 +7,6 @@
   imports = [
     ./shells        # Bash, Zsh, Nushell, Starship, Aliases
     ./editors       # Neovim with full config
-    # ./git will be migrated from programs/git.nix
-    # ./tools will have CLI dev tools
+    ./tools         # SSH + wget and CLI networking tools
   ];
 }
