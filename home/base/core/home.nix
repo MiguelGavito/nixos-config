@@ -1,9 +1,13 @@
-{ ... }:
+{ username, ... }:
 {
   # Core Home Manager configuration
   # This is the minimal base for all platforms
   
-  home.stateVersion = "25.11";
+  home = {
+    inherit username;
+    homeDirectory = "/home/${username}";
+    stateVersion = "25.11";
+  };
   
   programs.home-manager.enable = true;
   

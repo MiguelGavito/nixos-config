@@ -14,19 +14,26 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Enable Steam
+    # Enable Steam with proper configuration
     programs.steam = {
       enable = true;
       protontricks.enable = true;
       gamescopeSession.enable = true;
     };
 
+    # Enable GameMode for performance optimization
+    programs.gamemode.enable = true;
+
     # Gaming-related system packages
     environment.systemPackages = with pkgs; [
-      gamemode
       mangohud
-      protonup
+      protonup-ng  # Use protonup-ng instead of protonup (newer version)
     ];
+
+    # Steam environment variables for compatibility tools
+    environment.sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "home/user/.steam/root/compatibilitytools.d";
+    };
 
     # Kernel modules and settings for gaming
     boot.kernel.sysctl = {
