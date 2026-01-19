@@ -10,6 +10,10 @@ let
   niriEnabled = (config.modules.desktop.niri.enable or false);
 in
 {
+  imports = [
+    ./env.nix
+  ];
+
   options.modules.linux.wayland = {
     enable = lib.mkEnableOption "Wayland desktop base (Waybar, Mako, Swaybg)";
   };

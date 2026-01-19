@@ -34,21 +34,19 @@ let
         desktops.kde.enable = false;
         
         services.displayManager.gdm.enable = true;
+        
+        # Enable gaming support
+        modules.gaming.enable = true;
       }
     ];
     
         
     home-modules = [
       (mylib.relativeToRoot "hosts/elnavio/home.nix")
-      # New portable layers - core modules expanded here
-    ] ++ core-modules ++ [
-      (mylib.relativeToRoot "home/base/tui")
-      (mylib.relativeToRoot "home/base/gui")
+      # Main home-manager aggregator
+      (mylib.relativeToRoot "home")
 
-      # Wayland base (Waybar/Mako) gated by compositor flags
-      (mylib.relativeToRoot "home/linux/gui/wayland")
-
-      # Desktop compositor
+      # Desktop compositor (Linux-specific)
       (mylib.relativeToRoot "home/desktop/niri")
 
       {

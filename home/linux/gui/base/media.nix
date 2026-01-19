@@ -1,0 +1,40 @@
+{
+  pkgs,
+  config,
+  ...
+}:
+# media - control and enjoy audio/video
+{
+  home.packages = with pkgs; [
+    # audio control
+    pavucontrol
+    playerctl
+    pulsemixer
+    # images
+    imv
+    # edicion audio
+    audacity
+    vlc
+    #edition images
+    gimp
+
+    # here gona put the more personal programs and possible config
+
+    kew #hear music on terminal
+    ytmdl #download youtube music with metadata
+  ];
+
+  programs = {
+    mpv = {
+      enable = true;
+      defaultProfiles = ["gpu-hq"];
+      scripts = [pkgs.mpvScripts.mpris];
+    };
+
+    obs-studio.enable = true;
+  };
+
+  services = {
+    playerctld.enable = true;
+  };
+}

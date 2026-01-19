@@ -1,11 +1,10 @@
 {
   imports = [
-    ./ide
-    ./programs
-    ./shell
-    ./desktop/base # Common desktop configurations
-
-    # Desktop-specific imports are now controlled by modules
-    # Enable them in outputs/x86_64-linux/src/elnavio.nix
+    # Cross-platform base configuration
+    ./base
+    
+    # Platform-specific configurations
+    ./linux    # Linux-specific GUI/TUI (includes wayland, hyprland, niri)
+    ./darwin   # macOS-specific configuration
   ];
 }

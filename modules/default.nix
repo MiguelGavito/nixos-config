@@ -14,5 +14,6 @@
     ./users.nix
     ./firewall.nix
     ./ssh.nix
+    ./gaming.nix
   ];
 }
