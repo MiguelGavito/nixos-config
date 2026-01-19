@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   toLua = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 in {
@@ -13,15 +13,15 @@ in {
       lua-language-server
       nil
       clang-tools
-
-      #clipboard
-      wl-clipboard
-      xclip
-
-      #telescope
+      
+      #clipboard - Linux only (macOS uses native pbcopy/pbpaste)
       ripgrep
       fd
-    ];
+    ]
+    ++ (lib.optionals pkgs.stdenv.isLinux [
+      wl-clipboard  # Wayland
+      xclip         # X11
+    ]);
 
     plugins = with pkgs.vimPlugins; [
       {

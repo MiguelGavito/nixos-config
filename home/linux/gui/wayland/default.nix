@@ -131,6 +131,7 @@ in
       "waybar/config".source = ./waybar/config.jsonc;
       "waybar/style.css".source = ./waybar/style.css;
       "waybar/scripts/launch.sh".source = ./waybar/scripts/launch.sh;
+      "mako/config".source = ./mako/config;
     };
 
     # Wallpaper management with home-manager

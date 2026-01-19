@@ -27,9 +27,11 @@
     pgcli
 
     # misc utilities
+    graphviz
+  ]
+  ++ (lib.optionals pkgs.stdenv.isLinux [
     libnotify
     xdg-utils
-    graphviz
     wineWowPackages.wayland
-  ];
+  ]);
 }
