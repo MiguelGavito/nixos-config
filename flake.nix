@@ -31,6 +31,12 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hytale-launcher.url = "github:TNAZEP/HytaleLauncherFlake";
+    
+    # desktop shell
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+    };  
   };
 
   outputs = inputs: import ./outputs inputs;
