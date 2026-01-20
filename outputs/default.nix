@@ -9,6 +9,7 @@
   # Arguments passed to all host definitions
   args = {
     inherit inputs lib mylib;
+    catppuccin = inputs.catppuccin;
   };
 
   # Import system-specific outputs

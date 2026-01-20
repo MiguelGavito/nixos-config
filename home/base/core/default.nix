@@ -7,7 +7,6 @@
     ./common.nix
     ./editors
     ./git.nix
-    ./home.nix
     ./npm.nix
     ./pip.nix
     ./shells

@@ -16,22 +16,22 @@
     tree
     
     # cloud native
-    docker-compose
-    kubectl
+    #docker-compose
+    #kubectl
 
     # Node.js runtime
-    nodejs
+    #nodejs
 
     # db clients
-    mycli
-    pgcli
+    #mycli
+    #pgcli
 
     # misc utilities
-    graphviz
+    #graphviz
   ]
   ++ (lib.optionals pkgs.stdenv.isLinux [
     libnotify
     xdg-utils
-    wineWowPackages.wayland
+    #wineWowPackages.wayland
   ]);
 }
