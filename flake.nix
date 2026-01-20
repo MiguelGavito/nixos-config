@@ -7,6 +7,8 @@
   inputs = {
     # Linux uses stable nixos branch
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     # macOS uses separate darwin branch
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     
