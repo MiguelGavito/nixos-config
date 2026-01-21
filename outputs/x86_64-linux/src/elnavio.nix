@@ -60,6 +60,6 @@ in
 {
   elnavio = mylib.nixosSystem (modules // args // { 
     inherit system username mylib;
-    specialArgs = { inherit username; };
+    specialArgs = { inherit username inputs system; };
   });
 }

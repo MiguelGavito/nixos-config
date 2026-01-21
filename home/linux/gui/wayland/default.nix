@@ -8,6 +8,7 @@ let
   cfg = config.modules.linux.wayland;
   hyprEnabled = (config.modules.desktop.hyprland.enable or false);
   niriEnabled = (config.modules.desktop.niri.enable or false);
+  noctaliaEnabled = (config.modules.desktop.niri.enable or false); # Noctalia runs on Niri
 in
 {
   imports = [
@@ -41,7 +42,7 @@ in
 
     # Autostart services via systemd user (ONLY for Wayland sessions)
     systemd.user.services = {
-      waybar = {
+      waybar = lib.mkIf (!noctaliaEnabled) {
         Unit = {
           Description = "Waybar status bar";
           After = ["graphical-session.target"];
@@ -55,7 +56,7 @@ in
         Install = {WantedBy = ["graphical-session.target"];};
       };
 
-      mako = {
+      mako = lib.mkIf (!noctaliaEnabled) {
         Unit = {
           Description = "Mako notification daemon";
           After = ["graphical-session.target"];
@@ -137,7 +138,7 @@ in
     # Wallpaper management with home-manager
     # Using wallpaper.png from project root
     home.file."${config.xdg.dataHome}/wallpapers/wallpaper.png" = {
-      source = ../../../../wallpaper.png;
+      source = ../../../desktop/wallpapers/wallpaper.png;
     };
 
     # Wallpaper directory setup (if doesn't exist)

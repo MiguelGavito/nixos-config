@@ -10,6 +10,7 @@
   args = {
     inherit inputs lib mylib;
     catppuccin = inputs.catppuccin;
+    noctalia = inputs.noctalia;
   };
 
   # Import system-specific outputs

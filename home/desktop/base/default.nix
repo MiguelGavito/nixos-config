@@ -118,9 +118,8 @@
   # Wallpaper management with home-manager
   # Using wallpaper.png from project root
   home.file."${config.xdg.dataHome}/wallpapers/wallpaper.png" = {
-    source = ../../../wallpaper.png;
+    source = ../../desktop/wallpapers/wallpaper.png;
   };
-
   # Wallpaper directory setup (if doesn't exist)
   home.activation.createWallpaperDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
     mkdir -p ${config.xdg.dataHome}/wallpapers

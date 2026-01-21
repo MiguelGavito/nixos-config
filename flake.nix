@@ -35,7 +35,7 @@
     # desktop shell
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs-unstable.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };  
   };
 

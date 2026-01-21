@@ -9,6 +9,7 @@
     ./dev-tools.nix
     ./desktop-tools.nix
     ./editors.nix
+    ./noctalia.nix
     ./xdg
   ];
 }
