@@ -14,7 +14,7 @@
 in {
   lanave = home-manager.lib.homeManagerConfiguration {
     pkgs = nixpkgs.legacyPackages.${system};
-    extraSpecialArgs = inputs // {inherit username mylib;};
+    extraSpecialArgs = inputs // {inherit inputs username mylib system;};
     modules = [
       ../../../hosts/lanave/home.nix
     ] ++ core-modules ++ [

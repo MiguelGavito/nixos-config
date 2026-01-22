@@ -1,4 +1,5 @@
 
+
 {
   config,
   pkgs,
@@ -7,9 +8,9 @@
 }: {
   imports = [
     # New portable TUI structure (core imported at flake level)
-    ../../home/base/tui           # Shells, Neovim, CLI tools (portable)
-    ../../home/base/gui           # Terminal (Kitty) and cross-platform GUI
-    
+    ../../home/base          # Terminal (Kitty) and cross-platform GUI
+    # ../../home/linux/gui/base/noctalia.nix
+
     # Linux-specific
     ../../home/linux/gui/wayland  # Waybar, Mako (for Niri)
     
@@ -19,8 +20,8 @@
   ];
 
   # Enable modules
-  modules.desktop.niri.enable = false;
-  modules.linux.wayland.enable = false;  # Enable Waybar, Mako for Niri
+  modules.desktop.niri.enable = true;
+  modules.linux.wayland.enable = true;  # Enable Waybar, Mako for Niri
 
   # lanave-specific overrides only
   fonts.fontconfig.enable = true;
@@ -33,4 +34,5 @@
     user.email = "mgavitogzz@gmail.com";
   };
 }
+
 
