@@ -1,4 +1,6 @@
 {...}: let
+  # look like the aliases that are used are form core/shells/aliases.nix not here
+
   # Define aliases once, use everywhere
   shellAliases = {
     # kubectl shortcut
