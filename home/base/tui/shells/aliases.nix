@@ -13,6 +13,12 @@
     ".." = "cd ..";
     "..." = "cd ../..";
 
+    # nix commands
+    nixflk = "nix flake check"; # useful to checks
+    nixossw = "nixos-rebuild switch --flake .#$(hostname)"; #only useful on nixos but good to have
+    hmsw = "home-manager switch --flake .#$(hostname)"; #for home manager
+    darwinsw = "darwin-rebuild switch --flake .#$(hostname)"; # for nix-darwin
+
     # Git shortcuts
     gs = "git status";
     ga = "git add";
