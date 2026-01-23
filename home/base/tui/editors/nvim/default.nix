@@ -88,7 +88,7 @@ in {
 
       {
         plugin = gruvbox-nvim;
-        config = toLua ''vim.cmd.colorscheme "gruvbox"'';
+        config = toLua ''vim.cmd.colorscheme "catppuccin"'';   #gruvbox
       }
 
       {
