@@ -6,6 +6,8 @@
     alejandra
     deadnix
     statix
+
+    devenv
   ];
 
   # Auto environment loading - CRITICAL: enable for ALL shells
