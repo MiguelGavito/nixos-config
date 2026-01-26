@@ -30,7 +30,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hytale-launcher.url = "github:TNAZEP/HytaleLauncherFlake";
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
     
     # desktop shell
     noctalia = {

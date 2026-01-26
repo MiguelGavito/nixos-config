@@ -11,9 +11,7 @@ let
   noctaliaEnabled = (config.modules.desktop.niri.enable or false); # Noctalia runs on Niri
 in
 {
-  imports = [
-    ./env.nix
-  ];
+  imports = [ ./env.nix ];
 
   options.modules.linux.wayland = {
     enable = lib.mkEnableOption "Wayland desktop base (Waybar, Mako, Swaybg)";

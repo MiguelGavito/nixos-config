@@ -37,9 +37,9 @@
 
   # Ensure icon fonts for Waybar (Font Awesome/Nerd Fonts)
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
-    font-awesome
-    adwaita-icon-theme
+  home.packages = [
+    pkgs.font-awesome
+    pkgs.adwaita-icon-theme
   ];
 }
 
