@@ -481,7 +481,7 @@
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "boxBorderEnabled": false,
-        "fontDefault": "Sans Serif",
+        "fontDefault": "TeX Gyre Adventor",
         "fontDefaultScale": 1.05,
         "fontFixed": "monospace",
         "fontFixedScale": 1,

@@ -11,6 +11,9 @@ let
   noctaliaEnabled = (config.modules.desktop.niri.enable or false); # Noctalia runs on Niri
 in
 {
+  # Avoid referencing `config` inside `imports` (it triggers infinite recursion).
+  # Import `env.nix` unconditionally and let its content be guarded by options
+  # (mkEnableOption / mkIf) if runtime enabling is required.
   imports = [ ./env.nix ];
 
   options.modules.linux.wayland = {

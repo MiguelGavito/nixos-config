@@ -1,11 +1,17 @@
-{ config, lib, ... }:
-# Wayland-specific environment variables.
-# Apply these only when a Wayland compositor (Hyprland or Niri) is enabled.
-let
-  hyprEnabled = (config.modules.desktop.hyprland.enable or false);
-  niriEnabled = (config.modules.desktop.niri.enable or false);
-in
-lib.mkIf (hyprEnabled || niriEnabled) {
+{...}:
+# Wayland-specific environment variables
+# Import this ONLY in hosts that use Wayland compositors:
+# - Hyprland
+# - Niri
+# - Sway
+# - River
+# etc.
+#
+# Do NOT import on:
+# - X11 sessions (KDE X11, GNOME X11)
+# - Servers without GUI
+# - macOS
+{
   home.sessionVariables = {
     # Tell applications to use Wayland
     XDG_SESSION_TYPE = "wayland";

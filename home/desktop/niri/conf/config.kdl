@@ -3,10 +3,11 @@
 input {
     keyboard {
         xkb {
-            layout "us,es,jp"
+            layout "us,latam,jp"
             options "grp:alt_shift_toggle"
         }
         numlock
+        track-layout "global"
     }
     touchpad {
         tap
