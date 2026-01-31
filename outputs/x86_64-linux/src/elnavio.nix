@@ -15,7 +15,7 @@ let
     nixos-modules = [
       (mylib.relativeToRoot "hosts/elnavio/configuration.nix")
       (mylib.relativeToRoot "hosts/elnavio/hardware-configuration.nix")
-      (mylib.relativeToRoot "modules/default.nix")
+      (mylib.relativeToRoot "modules/nixos/default.nix")
       inputs.nixos-hardware.nixosModules.asus-fa507nv
       {
         # Overlay to add hytale-launcher to pkgs

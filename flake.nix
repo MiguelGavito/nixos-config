@@ -1,4 +1,3 @@
-
 {
   description = "Nixos configuration of MiguelGavito";
 
@@ -39,6 +38,7 @@
     };  
   };
 
-  outputs = inputs: import ./outputs inputs;
+  outputs = inputs:
+    import ./outputs inputs;
 }
 

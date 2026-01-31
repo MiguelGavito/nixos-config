@@ -1,9 +1,12 @@
-{ mylib, ... }@args:
-let
-  # Import all host configurations from src/
-  hosts = import ./src args;
-in
 {
-  # Export as darwinConfigurations for nix-darwin
-  darwinConfigurations = hosts;
+  lib,
+  inputs,
+  mylib,
+  system,
+  ...
+} @ args: let
+  elgaleon = import ./src/elgaleon.nix args;
+  # Si tienes más hosts, agrégalos aquí
+in {
+  darwinConfigurations.elgaleon = elgaleon;
 }
