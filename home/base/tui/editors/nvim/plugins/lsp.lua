@@ -54,11 +54,18 @@ vim.lsp.config('clangd', {
   capabilities = capabilities,
 })
 
+-- Rust LSP (rust-analyzer)
+vim.lsp.config('rust_analyzer', {
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
+  capabilities = capabilities
+})
+
 -- Auto-start LSP on filetype and attach mappings
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
+  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' , 'rust'},
   callback = function(args)
-    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' })
+    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' , 'rust_analyzer'})
     on_attach(nil, args.buf)
   end,
 })
