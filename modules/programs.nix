@@ -12,6 +12,11 @@
   environment.systemPackages = with pkgs; [
     teamviewer
   ];
+
+  virtualisation.docker.enable = true;
+
+  users.users.miguelagg.extraGroups = [ "docker" ];
+  
   # Gaming configuration has been moved to ./gaming.nix
   # Enable it in your host configuration with: modules.gaming.enable = true;
 }
