@@ -29,9 +29,10 @@
       pull.rebase = true;
       log.date = "iso"; # use iso format fot date 
 
+      credential.helper = "!gh auth git-credential";
       # replace https with ssh
       # url."git@github.com:" = {
-      #   insteadOf = "https://github.com/";
+      #   insteadOf = "https:/file:///home/miguelagg/Nextcloud/Notas/Sem6/.obsidian/workspace.json/github.com/";
       # };
       alias = {
         #common aliases
@@ -56,6 +57,5 @@
   programs.lazygit.enable = true;
 
   # another Git TUI (written in rust).
-  programs.gitui.enable = false;
-  
+  programs.gitui.enable = false;  
 }
