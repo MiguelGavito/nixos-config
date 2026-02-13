@@ -16,18 +16,21 @@
     tree
     
     # cloud native
-    #docker-compose
-    #kubectl
+    docker-compose
+    kubectl
 
     # Node.js runtime
     #nodejs
 
     # db clients
-    #mycli
-    #pgcli
+    mycli
+    pgcli
+
+    # gui applications
+    github-desktop
 
     # misc utilities
-    #graphviz
+    graphviz
   ]
   ++ (lib.optionals pkgs.stdenv.isLinux [
     libnotify

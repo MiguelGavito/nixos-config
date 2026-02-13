@@ -1,6 +1,6 @@
 {lib}: {
   username = "miguelagg";
-  userfullname = "Miguel Gavito";
+  userfullname = "MiguelGavito";
   useremail = "mgavitogzz@gmail.com";
 
   mainSshAuthorizedKeys = [

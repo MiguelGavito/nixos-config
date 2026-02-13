@@ -8,6 +8,8 @@
     # communication
     discord
     ferdium
+    telegram-desktop
+    # teams
 
     # utils
     libnotify

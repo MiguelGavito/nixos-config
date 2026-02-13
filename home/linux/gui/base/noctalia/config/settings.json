@@ -126,6 +126,21 @@
             ],
             "right": [
                 {
+                    "displayMode": "forceOpen",
+                    "id": "KeyboardLayout",
+                    "showIcon": true
+                },
+                {
+                    "capsLockIcon": "letter-c",
+                    "hideWhenOff": false,
+                    "id": "LockKeys",
+                    "numLockIcon": "letter-n",
+                    "scrollLockIcon": "letter-s",
+                    "showCapsLock": false,
+                    "showNumLock": true,
+                    "showScrollLock": false
+                },
+                {
                     "blacklist": [
                     ],
                     "colorizeIcons": false,

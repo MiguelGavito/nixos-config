@@ -10,7 +10,7 @@
     musescore # music notation
     
     # 3d modeling (large, can be disabled)
-    # blender
+    blender
 
     # other tools
     graphviz # graph visualization
