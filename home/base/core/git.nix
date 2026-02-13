@@ -32,7 +32,7 @@
       credential.helper = "!gh auth git-credential";
       # replace https with ssh
       # url."git@github.com:" = {
-      #   insteadOf = "https:/file:///home/miguelagg/Nextcloud/Notas/Sem6/.obsidian/workspace.json/github.com/";
+      #   insteadOf = "https://github.com/";
       # };
       alias = {
         #common aliases
