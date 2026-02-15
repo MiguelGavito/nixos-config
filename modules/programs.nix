@@ -23,6 +23,7 @@
     package = pkgs.mariadb; # or pkgs.mysql84 for MySQL specifically
   };
  
+
   # Gaming configuration has been moved to ./gaming.nix
   # Enable it in your host configuration with: modules.gaming.enable = true;
 }

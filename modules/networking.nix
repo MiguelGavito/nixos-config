@@ -13,6 +13,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  services.tailscale.enable = true;
+  
+  environment.systemPackages = with pkgs; [
+    tailscale
+  ];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
