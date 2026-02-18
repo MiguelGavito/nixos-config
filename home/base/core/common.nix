@@ -20,7 +20,7 @@
     kubectl
 
     # Node.js runtime
-    #nodejs
+    nodejs
 
     # db clients
     mycli
