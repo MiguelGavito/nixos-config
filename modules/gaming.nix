@@ -31,8 +31,9 @@ in
     ];
 
     # Steam environment variables for compatibility tools
+    # Use $HOME so the path resolves per-user at session time
     environment.sessionVariables = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "home/user/.steam/root/compatibilitytools.d";
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
     };
 
     # Kernel modules and settings for gaming
