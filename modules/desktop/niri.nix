@@ -23,6 +23,12 @@
     security.pam.services.swaylock.enableGnomeKeyring = true;
 
     # Force Niri to use AMD iGPU (not NVIDIA)
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      __GLX_VENDOR_LIBRARY_NAME = "amd";
+      # Steam needs X11 backend on Wayland, not pure Wayland
+      SDL_VIDEODRIVER = "x11";
+    };
 
     environment.systemPackages = with pkgs; [
       niri
@@ -49,20 +55,10 @@
       waybar
     ];
 
-    # Unified session variables (avoid multiple assignments that overwrite each other)
-    # NOTE: don't force SDL_VIDEODRIVER here to avoid conflicting with Wayland/X11
-    let
-      isAMD = lib.elem "amdgpu" (config.services.xserver.videoDrivers or [])
-        || (config.hardware.opengl ? vendor && config.hardware.opengl.vendor == "AMD");
-    in
-    environment.sessionVariables = lib.mkMerge [
-      {
-        WLR_NO_HARDWARE_CURSORS = "1";
-        # kitty as default terminal
-        TERMINAL = "kitty";
-      }
-      (lib.mkIf isAMD { __GLX_VENDOR_LIBRARY_NAME = "amd"; })
-    ];
+    # kitty as default terminal
+    environment.sessionVariables = {
+      TERMINAL = "kitty";
+    };
 
     security.pam.services.swaylock = {};
 
