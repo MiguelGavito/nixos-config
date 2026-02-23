@@ -9,6 +9,10 @@ in {
     vimAlias = true;
     vimdiffAlias = true;
 
+    defaultEditor = true;
+
+    
+
     extraPackages = with pkgs; [
       lua-language-server
       nil

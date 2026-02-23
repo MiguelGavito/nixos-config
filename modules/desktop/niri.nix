@@ -58,6 +58,7 @@
     # kitty as default terminal
     environment.sessionVariables = {
       TERMINAL = "kitty";
+      
     };
 
     security.pam.services.swaylock = {};

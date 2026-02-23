@@ -3,7 +3,7 @@
 input {
     keyboard {
         xkb {
-            layout "us,latam,jp"
+            layout "us,latam" // estaba jp antes, quite temporalmente
             options "grp:alt_shift_toggle"
         }
         numlock
