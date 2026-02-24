@@ -17,7 +17,13 @@ in {
       lua-language-server
       nil
       clang-tools
-      
+
+      rustc
+      cargo
+      rust-analyzer
+      rustfmt
+      clippy
+
       #clipboard - Linux only (macOS uses native pbcopy/pbpaste)
       ripgrep
       fd
@@ -59,6 +65,7 @@ in {
           p.tree-sitter-nix
           p.tree-sitter-c
           p.tree-sitter-cpp
+          p.tree-sitter-rust
         ]);
         config = toLuaFile ./plugins/treesitter.lua;
       }

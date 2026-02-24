@@ -17,6 +17,10 @@ local on_attach = function(_, bufnr)
   bufmap('<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace symbols')
 
   bufmap('K', vim.lsp.buf.hover, 'Hover info')
+    
+  bufmap('gd', vim.diagnostic.open_float, 'show diagnostic')
+  bufmap('<leader>d', require('telescope.builtin').diagnostics,  'Show diagnostic of all')
+
 
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
@@ -54,11 +58,18 @@ vim.lsp.config('clangd', {
   capabilities = capabilities,
 })
 
+-- Rust LSP (rust-analyzer)
+vim.lsp.config('rust_analyzer', {
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
+  capabilities = capabilities
+})
+
 -- Auto-start LSP on filetype and attach mappings
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
+  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' , 'rust'},
   callback = function(args)
-    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' })
+    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' , 'rust_analyzer'})
     on_attach(nil, args.buf)
   end,
 })
