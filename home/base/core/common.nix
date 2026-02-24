@@ -26,13 +26,14 @@
     mycli
     pgcli
 
-    # gui applications
-    github-desktop
-
     # misc utilities
     graphviz
   ]
+    # this are aplication that are linux only
   ++ (lib.optionals pkgs.stdenv.isLinux [
+    # gui applications (Linux only)
+    github-desktop
+
     libnotify
     xdg-utils
     #wineWowPackages.wayland
