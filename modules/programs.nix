@@ -16,6 +16,8 @@
   virtualisation.docker.enable = true;
 
   users.users.miguelagg.extraGroups = [ "docker" ];
+
+  programs.zoom-us.enable = true;
   
   # mover luego a otro sitio 
   services.mysql = {
