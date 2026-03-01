@@ -45,7 +45,7 @@ binds {
     // Core Noctalia binds
     // Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+S { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-    Mod+Space { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+    // Mod+Space { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
 
     // Audio & Brightness comprobar luego
     // XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
@@ -78,7 +78,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }    // Window management
 
 

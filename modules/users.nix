@@ -12,4 +12,10 @@
     description = "Miguel Gavito";
     extraGroups = ["networkmanager" "wheel" "input"];
   };
+
+  users.users.ab = {
+    isNormalUser = true;
+    description = "Guess";
+    extraGroups = ["networkManager" "wheel" "input"];
+  };
 }
