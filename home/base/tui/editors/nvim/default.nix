@@ -18,6 +18,10 @@ in {
       nil
       clang-tools
 
+      # TypeScript
+      
+
+
       rustc
       cargo
       rust-analyzer
@@ -32,7 +36,7 @@ in {
       wl-clipboard  # Wayland
       xclip         # X11
     ]);
-
+    
     plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-lspconfig;
