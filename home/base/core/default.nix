@@ -1,4 +1,3 @@
-
 { ... }:
 {
   imports = [
@@ -13,6 +12,7 @@
     ./starship.nix
     ./theme.nix
     ./yazi.nix
+    ./fcitx.nix
   ];
 }
 

@@ -15,5 +15,6 @@
     ./firewall.nix
     ./ssh.nix
     ./gaming.nix
+    ./fcitx.nix
   ];
 }

@@ -37,9 +37,32 @@
 
   # Ensure icon fonts for Waybar (Font Awesome/Nerd Fonts)
   fonts.fontconfig.enable = true;
+  fonts.fontconfig.defaultFonts = {
+    sansSerif = [
+      "Noto Sans"
+      "Noto Sans CJK JP"
+      "Noto Color Emoji"
+    ];
+    serif = [
+      "Noto Serif"
+      "Noto Serif CJK JP"
+      "Noto Color Emoji"
+    ];
+    monospace = [
+      "Noto Sans Mono"
+      "Noto Sans CJK JP"
+      "Noto Color Emoji"
+    ];
+    emoji = [ "Noto Color Emoji" ];
+  };
+
   home.packages = [
     pkgs.font-awesome
     pkgs.adwaita-icon-theme
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-cjk-serif
+    pkgs.noto-fonts-color-emoji
   ];
 }
 

@@ -3,8 +3,8 @@
 input {
     keyboard {
         xkb {
-            layout "us,latam" // estaba jp antes, quite temporalmente
-            options "grp:alt_shift_toggle"
+            layout "us,latam,jp" // US, Latam (Spanish), Japanese
+            options "grp:alt_shift_toggle" // Shift+Alt to cycle through layouts
         }
         numlock
         track-layout "global"

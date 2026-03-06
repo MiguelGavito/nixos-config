@@ -37,6 +37,9 @@ let
         
         # Enable gaming support
         modules.gaming.enable = true;
+        
+        # Enable Fcitx5 for input method support (Japanese, etc) - Wayland compatible
+        modules.fcitx.enable = true;
       }
     ];
     
