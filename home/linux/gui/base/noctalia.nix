@@ -14,6 +14,7 @@ in
     home.packages = [
       inputs.noctalia.packages.${system}.default
       pkgs.qt6Packages.qt6ct  # for theming
+      pkgs.quickshell
     ];
 
     # Point noctalia config to your repo

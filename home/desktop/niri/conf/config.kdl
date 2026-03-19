@@ -288,3 +288,4 @@ animations {
     slowdown 1.0
 }
 
+spawn-at-startup "qs" "-c" "noctalia-shell"
