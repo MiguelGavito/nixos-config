@@ -20,17 +20,16 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
     catppuccin = {
       url = "github:catppuccin/nix";
-    };
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
+    hytale-launcher.inputs.nixpkgs.follows = "nixpkgs-unstable";
     
     # desktop shell
     noctalia = {
@@ -41,6 +40,7 @@
     noctalia-qs = {
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
