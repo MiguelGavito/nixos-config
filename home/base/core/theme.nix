@@ -1,8 +1,15 @@
-{ catppuccin, ... }:
-{
+{ catppuccin, lib, ... }:
+let
+  hmCatppuccinModules = import "${catppuccin}/modules/home-manager/all-modules.nix";
+  hmCatppuccinModulesFiltered =
+    builtins.filter (m: builtins.baseNameOf (toString m) != "opencode.nix") hmCatppuccinModules;
+in {
+
   # https://github.com/catppuccin/nix
   imports = [
-    catppuccin.homeModules.catppuccin
+    (lib.modules.importApply "${catppuccin}/modules/global.nix" {
+      catppuccinModules = hmCatppuccinModulesFiltered;
+    })
   ];
 
   catppuccin = {

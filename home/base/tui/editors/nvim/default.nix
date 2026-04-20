@@ -1,148 +1,168 @@
-{pkgs, lib, ...}: let
+{ config, pkgs, lib, ... }: let
+  cfg = config.modules.editors.nvim;
   toLua = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 in {
-  programs.neovim = {
-    enable = true;
+  options.modules.editors.nvim = {
+    cpp.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable C/C++ Neovim tooling (clangd, clang-tools, tree-sitter parsers).";
+    };
+  };
+
+  config = {
+    programs.neovim = {
+      enable = true;
 
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
-    defaultEditor = true;
+      defaultEditor = true;
 
-    
+      
 
-    extraPackages = with pkgs; [
-      lua-language-server
-      nil
-      clang-tools
+      extraPackages =
+        (with pkgs; [
+          lua-language-server
+          nil
 
       # TypeScript
       
 
 
-      rustc
-      cargo
-      rust-analyzer
-      rustfmt
-      clippy
+          rustc
+          cargo
+          rust-analyzer
+          rustfmt
+          clippy
 
-      #clipboard - Linux only (macOS uses native pbcopy/pbpaste)
-      ripgrep
-      fd
-    ]
-    ++ (lib.optionals pkgs.stdenv.isLinux [
-      wl-clipboard  # Wayland
-      xclip         # X11
-    ]);
+          #clipboard - Linux only (macOS uses native pbcopy/pbpaste)
+          ripgrep
+          fd
+        ])
+        ++ (lib.optionals cfg.cpp.enable (with pkgs; [
+          clang-tools
+        ]))
+        ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs; [
+          wl-clipboard  # Wayland
+          xclip         # X11
+        ]));
     
-    plugins = with pkgs.vimPlugins; [
-      {
-        plugin = nvim-lspconfig;
-        config = toLuaFile ./plugins/lsp.lua;
-      }
+      plugins = with pkgs.vimPlugins; [
+        {
+          plugin = nvim-lspconfig;
+          config = toLuaFile ./plugins/lsp.lua;
+        }
 
-      neodev-nvim
+        neodev-nvim
 
-      nvim-cmp
-      {
-        plugin = nvim-cmp;
-        config = toLuaFile ./plugins/cmp.lua;
-      }
+        nvim-cmp
+        {
+          plugin = nvim-cmp;
+          config = toLuaFile ./plugins/cmp.lua;
+        }
 
-      cmp-nvim-lsp
-      cmp_luasnip
-      luasnip
-      friendly-snippets
+        cmp-nvim-lsp
+        cmp_luasnip
+        luasnip
+        friendly-snippets
 
-      {
-        plugin = telescope-nvim;
-        # config = toLuaFile ./plugins/telescope.lua;
-      }
+        {
+          plugin = telescope-nvim;
+          # config = toLuaFile ./plugins/telescope.lua;
+        }
 
-      telescope-fzf-native-nvim
+        telescope-fzf-native-nvim
 
-      {
-        plugin = nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-lua
-          p.tree-sitter-nix
-          p.tree-sitter-c
-          p.tree-sitter-cpp
-          p.tree-sitter-rust
-        ]);
-        config = toLuaFile ./plugins/treesitter.lua;
-      }
+        {
+          plugin = nvim-treesitter.withPlugins (
+            p:
+              (with p; [
+                tree-sitter-lua
+                tree-sitter-nix
+                tree-sitter-rust
+              ])
+              ++ (lib.optionals cfg.cpp.enable (with p; [
+                tree-sitter-c
+                tree-sitter-cpp
+              ]))
+          );
+          config = toLuaFile ./plugins/treesitter.lua;
+        }
 
-      {
-        plugin = harpoon2;
-      }
+        {
+          plugin = harpoon2;
+        }
 
-      {
-        plugin = vim-fugitive;
-      }
+        {
+          plugin = vim-fugitive;
+        }
 
-      {
-        plugin = undotree;
-      }
+        {
+          plugin = undotree;
+        }
 
-      {
-        plugin = toggleterm-nvim;
-      }
+        {
+          plugin = toggleterm-nvim;
+        }
 
-      {
-        plugin = gitsigns-nvim;
-      }
+        {
+          plugin = gitsigns-nvim;
+        }
 
-      {
-        plugin = which-key-nvim;
-      }
+        {
+          plugin = which-key-nvim;
+        }
 
-      nvim-web-devicons
-      mini-nvim
+        nvim-web-devicons
+        mini-nvim
 
-      {
-        plugin = gruvbox-nvim;
-        config = toLua ''vim.cmd.colorscheme "catppuccin"'';   #gruvbox
-      }
+        {
+          plugin = gruvbox-nvim;
+          config = toLua ''vim.cmd.colorscheme "catppuccin"'';   #gruvbox
+        }
 
-      {
-        plugin = nvim-autopairs;
-        config = toLua ''require("nvim-autopairs").setup()'';
-      }
+        {
+          plugin = nvim-autopairs;
+          config = toLua ''require("nvim-autopairs").setup()'';
+        }
 
-      {
-        plugin = comment-nvim;
-      }
+        {
+          plugin = comment-nvim;
+        }
 
-      {
-        plugin = bufferline-nvim;
-      }
+        {
+          plugin = bufferline-nvim;
+        }
 
-      {
-        plugin = nvim-tree-lua;
-      }
+        {
+          plugin = nvim-tree-lua;
+        }
 
-      {
-        plugin = lualine-nvim;
-      }
-    ];
+        {
+          plugin = lualine-nvim;
+        }
+      ];
 
-    extraLuaConfig = ''
-      vim.g.mapleader = ' '
-      vim.g.maplocalleader = ' '
-      ${builtins.readFile ./options.lua}
-      ${builtins.readFile ./plugins/harpoon.lua}
-      ${builtins.readFile ./plugins/telescope.lua}
-      ${builtins.readFile ./plugins/fugitive.lua}
-      ${builtins.readFile ./plugins/undotree.lua}
-      ${builtins.readFile ./plugins/toggleterm.lua}
-      ${builtins.readFile ./plugins/gitsigns.lua}
-      ${builtins.readFile ./plugins/whichkey.lua}
-      ${builtins.readFile ./plugins/comment.lua}
-      ${builtins.readFile ./plugins/bufferline.lua}
-      ${builtins.readFile ./plugins/nvim-tree.lua}
-      ${builtins.readFile ./plugins/lualine.lua}
-    '';
+      extraLuaConfig = ''
+        vim.g.mapleader = ' '
+        vim.g.maplocalleader = ' '
+        vim.g.enable_cpp_lsp = ${if cfg.cpp.enable then "true" else "false"}
+        ${builtins.readFile ./options.lua}
+        ${builtins.readFile ./plugins/harpoon.lua}
+        ${builtins.readFile ./plugins/telescope.lua}
+        ${builtins.readFile ./plugins/fugitive.lua}
+        ${builtins.readFile ./plugins/undotree.lua}
+        ${builtins.readFile ./plugins/toggleterm.lua}
+        ${builtins.readFile ./plugins/gitsigns.lua}
+        ${builtins.readFile ./plugins/whichkey.lua}
+        ${builtins.readFile ./plugins/comment.lua}
+        ${builtins.readFile ./plugins/bufferline.lua}
+        ${builtins.readFile ./plugins/nvim-tree.lua}
+        ${builtins.readFile ./plugins/lualine.lua}
+      '';
+    };
   };
 }

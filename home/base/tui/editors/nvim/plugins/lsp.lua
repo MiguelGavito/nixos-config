@@ -28,6 +28,7 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local enable_cpp = vim.g.enable_cpp_lsp == true
 
 require('neodev').setup()
 
@@ -51,12 +52,14 @@ vim.lsp.config('nil_ls', {
   capabilities = capabilities,
 })
 
--- C/C++ LSP (clangd, native API)
-vim.lsp.config('clangd', {
-  cmd = { 'clangd' },
-  filetypes = { 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
-  capabilities = capabilities,
-})
+if enable_cpp then
+  -- C/C++ LSP (clangd, native API)
+  vim.lsp.config('clangd', {
+    cmd = { 'clangd' },
+    filetypes = { 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' },
+    capabilities = capabilities,
+  })
+end
 
 -- Rust LSP (rust-analyzer)
 vim.lsp.config('rust_analyzer', {
@@ -66,10 +69,18 @@ vim.lsp.config('rust_analyzer', {
 })
 
 -- Auto-start LSP on filetype and attach mappings
+local lsp_filetypes = { 'lua', 'nix', 'rust' }
+local lsp_servers = { 'lua_ls', 'nil_ls', 'rust_analyzer' }
+
+if enable_cpp then
+  vim.list_extend(lsp_filetypes, { 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' })
+  table.insert(lsp_servers, 'clangd')
+end
+
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'lua', 'nix', 'c', 'cpp', 'cc', 'cxx', 'h', 'hpp' , 'rust'},
+  pattern = lsp_filetypes,
   callback = function(args)
-    vim.lsp.enable({ 'lua_ls', 'nil_ls', 'clangd' , 'rust_analyzer'})
+    vim.lsp.enable(lsp_servers)
     on_attach(nil, args.buf)
   end,
 })
