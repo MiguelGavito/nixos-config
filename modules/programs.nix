@@ -11,6 +11,7 @@
 
   environment.systemPackages = with pkgs; [
     teamviewer
+    unityhub
   ];
 
   virtualisation.docker.enable = true;
