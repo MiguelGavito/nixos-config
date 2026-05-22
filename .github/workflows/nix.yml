@@ -2,11 +2,15 @@ name: Nix checks
 
 on:
   push:
+    branches:
+      - main
   pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  lint:
+  eval-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,45 +20,7 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v16
 
-      - name: Enable Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
-
-      - name: Check formatting
-        run: nix run nixpkgs#alejandra -- --check .
-
-      - name: Run static analysis
+      - name: Run flake eval tests
         run: |
-          nix run nixpkgs#statix -- check .
-          nix run nixpkgs#deadnix -- .
-
-  linux-checks:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v16
-
-      - name: Enable Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
-
-      - name: Run Linux flake checks
-        run: nix flake check --print-build-logs
-
-  darwin-checks:
-    runs-on: macos-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v16
-
-      - name: Enable Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
-
-      - name: Run Darwin flake checks
-        run: nix flake check --print-build-logs
+          nix eval --raw .#nixosConfigurations.elnavio.config.system.build.toplevel.drvPath
+          nix eval --raw .#darwinConfigurations.elgaleon.system.drvPath

@@ -8,5 +8,6 @@
     ./editors       # Neovim with full config
     ./tools         # SSH + wget and CLI networking tools
     ./tmux.nix      # Terminal multiplexer
+    ../core/starship.nix
   ];
 }

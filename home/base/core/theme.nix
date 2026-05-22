@@ -12,5 +12,6 @@
     flavor = "mocha";
     # one of "blue", "flamingo", "green", "lavender", "maroon", "mauve", "peach", "pink", "red", "rosewater", "sapphire", "sky", "teal", "yellow"
     accent = "red";  # Purple accent instead of pink
+    starship.enable = false;
   };
 }
