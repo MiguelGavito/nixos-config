@@ -20,4 +20,17 @@ in {
     inherit (lanave) lanave;
     inherit (elcarguero) elcarguero;
   };
+
+  checks = {
+    x86_64-linux = {
+      elnavio = elnavio.elnavio.config.system.build.toplevel;
+      labahia = labahia.labahia.activationPackage;
+      lanave = lanave.lanave.activationPackage;
+      elcarguero = elcarguero.elcarguero.activationPackage;
+    };
+  };
+
+  formatter = {
+    x86_64-linux = inputs.nixpkgs.legacyPackages.${system}.alejandra;
+  };
 }

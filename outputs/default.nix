@@ -27,4 +27,12 @@ in {
   homeConfigurations = 
     (x86_64-linux.homeConfigurations or {}) //
     (aarch64-darwin.homeConfigurations or {});
+
+  checks =
+    (x86_64-linux.checks or {}) //
+    (aarch64-darwin.checks or {});
+
+  formatter =
+    (x86_64-linux.formatter or {}) //
+    (aarch64-darwin.formatter or {});
 }
