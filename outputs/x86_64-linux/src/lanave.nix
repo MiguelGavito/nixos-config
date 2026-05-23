@@ -7,7 +7,7 @@
   ...
 }: let
   inherit (inputs) nixpkgs home-manager;
-  username = "mariolo";
+  username = "ma";
   
   # Expand base/core modules at flake level to avoid circular dependency
   core-modules = mylib.scanPaths (mylib.relativeToRoot "home/base/core");

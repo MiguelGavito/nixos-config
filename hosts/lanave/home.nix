@@ -28,10 +28,8 @@
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-    nerdfonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
   ];
 
   programs.git.settings = {
