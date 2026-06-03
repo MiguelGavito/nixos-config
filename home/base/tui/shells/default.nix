@@ -6,6 +6,7 @@
     ./zsh.nix
     ./nushell
     ./common.nix
+    ./starship.nix
     ./aliases.nix
     ./env.nix
   ];
