@@ -32,4 +32,7 @@
 
   # Gaming configuration has been moved to ./gaming.nix
   # Enable it in your host configuration with: modules.gaming.enable = true;
+
+  # Configuratino for packettracer wrapper
+  programs.fuse.enable = true;
 }
