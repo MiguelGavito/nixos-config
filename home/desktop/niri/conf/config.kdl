@@ -45,8 +45,11 @@ window-rule {
 binds {
     // Core Noctalia binds
     // Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+S { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-    Mod+A { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+    Mod+S {
+        spawn-sh "noctalia msg panel-toggle control-center";
+    }
+
+    Mod+A { spawn-sh "noctalia msg panel-toggle session"; }
     // Core Noctalia binds
     // Mod+Space {
     //    spawn-sh "qs ipc --pid $(pgrep -f noctalia-shell | head -n1) call launcher toggle"
@@ -299,4 +302,4 @@ animations {
     slowdown 1.0
 }
 
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
