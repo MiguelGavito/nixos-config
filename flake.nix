@@ -4,6 +4,11 @@
 
   # check later for tutorial https://github.com/ryan4yin/nixos-and-flakes-book
 
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+  };
+
   inputs = {
     # Linux uses stable nixos branch
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -21,7 +26,7 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     catppuccin = {
-      url = "github:catppuccin/nix";
+      url = "github:catppuccin/nix/release-25.11";
     };
     catppuccin-bat = {
       url = "github:catppuccin/bat";
@@ -34,14 +39,13 @@
     
     # desktop shell
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.noctalia-qs.follows = "noctalia-qs";
+      url = "github:noctalia-dev/noctalia/cachix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };  
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # noctalia-qs = {
+    #   url = "github:noctalia-dev/noctalia-qs";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs: import ./outputs inputs;
