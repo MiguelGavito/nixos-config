@@ -14,7 +14,10 @@
     unityhub
   ];
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    package = pkgs.docker_29;
+  };
 
   users.users.miguelagg.extraGroups = [ "docker" ];
 

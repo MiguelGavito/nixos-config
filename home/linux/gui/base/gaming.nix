@@ -4,7 +4,7 @@
 }: {
   home.packages = with pkgs; [
     bottles
-    heroic
+    # heroic
     lutris
     hytale-launcher
     # deadlock-mod-manager
