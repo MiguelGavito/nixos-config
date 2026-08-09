@@ -47,7 +47,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    cisco-packet-tracer.url = "git@github.com:MiguelGavito/cisco-wrapper.git";
+    cisco-packet-tracer.url = "git+ssh://git@github.com/MiguelGavito/cisco-wrapper.git";
   };
 
   outputs = inputs: import ./outputs inputs;

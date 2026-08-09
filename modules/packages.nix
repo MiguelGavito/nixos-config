@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   # activation of flatpak
@@ -12,7 +13,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # teams-for-linux
-    inputs.cisco-packet-tracer.packages.${pkgs.system}.default
+    # inputs.cisco-packet-tracer.packages.${pkgs.system}.default
     # (callPackage ../packages/cisco-packet-tracer9 { })
   ];
 }
