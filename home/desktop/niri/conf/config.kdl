@@ -50,6 +50,10 @@ binds {
     }
 
     Mod+A { spawn-sh "noctalia msg panel-toggle session"; }
+
+    Mod+Shift+S {
+        spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy";
+    }
     // Core Noctalia binds
     // Mod+Space {
     //    spawn-sh "qs ipc --pid $(pgrep -f noctalia-shell | head -n1) call launcher toggle"

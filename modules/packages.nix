@@ -12,6 +12,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # teams-for-linux
-    (callPackage ../packages/cisco-packet-tracer9 { })
+    inputs.cisco-packet-tracer.packages.${pkgs.system}.default
+    # (callPackage ../packages/cisco-packet-tracer9 { })
   ];
 }

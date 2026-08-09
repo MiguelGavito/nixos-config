@@ -46,6 +46,8 @@
     #   url = "github:noctalia-dev/noctalia-qs";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    cisco-packet-tracer.url = "git@github.com:MiguelGavito/cisco-wrapper.git";
   };
 
   outputs = inputs: import ./outputs inputs;

@@ -51,6 +51,9 @@
       grim
       slurp
 
+      # copiar texto de captura
+      tesseract
+
       # Bar
       waybar
     ];

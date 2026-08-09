@@ -23,29 +23,29 @@ in
       "${config.home.homeDirectory}/nixos-config/home/linux/gui/base/noctalia/config";
 
     # Systemd service to run noctalia shell automatically
-    systemd.user.services.noctalia-shell = {
-      Unit = {
-        Description = "Noctalia Shell - Wayland desktop shell";
-        Documentation = "https://docs.noctalia.dev/docs";
-        After = ["graphical-session.target"];
-        ConditionEnvironment = "XDG_SESSION_TYPE=wayland";
-      };
-
-      Service = {
-        ExecStart = "${inputs.noctalia.packages.${system}.default}/bin/noctalia-shell";
-        Restart = "on-failure";
-        RestartSec = 2;
-
-        Environment = [
-          "QT_QPA_PLATFORM=wayland;xcb"
-          "QT_QPA_PLATFORMTHEME=qt6ct"
-          "QT_AUTO_SCREEN_SCALE_FACTOR=1"
-        ];
-      };
-
-      Install = {
-        WantedBy = ["graphical-session.target"];
-      };
-    };
+    # systemd.user.services.noctalia-shell = {
+    #   Unit = {
+    #     Description = "Noctalia Shell - Wayland desktop shell";
+    #     Documentation = "https://docs.noctalia.dev/docs";
+    #     After = ["graphical-session.target"];
+    #     ConditionEnvironment = "XDG_SESSION_TYPE=wayland";
+    #   };
+    #
+    #   Service = {
+    #     ExecStart = "${inputs.noctalia.packages.${system}.default}/bin/noctalia --daemon";
+    #     Restart = "on-failure";
+    #     RestartSec = 2;
+    #
+    #     Environment = [
+    #       "QT_QPA_PLATFORM=wayland;xcb"
+    #       "QT_QPA_PLATFORMTHEME=qt6ct"
+    #       "QT_AUTO_SCREEN_SCALE_FACTOR=1"
+    #     ];
+    #   };
+    #
+    #   Install = {
+    #     WantedBy = ["graphical-session.target"];
+    #   };
+    # };
   };
 }
