@@ -11,12 +11,26 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
 
   services.tailscale.enable = true;
   
   environment.systemPackages = with pkgs; [
+    # conexion a labahia
     tailscale
+    
+    # nordvpn 
+    wireguard-tools
+    networkmanager
+    openvpn
+    networkmanager-openvpn
+
   ];
 
   # Open ports in the firewall.

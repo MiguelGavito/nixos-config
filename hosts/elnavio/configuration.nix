@@ -9,7 +9,8 @@
   ];
 
   networking.hostName = "elnavio";
-  time.timeZone = "America/Monterrey";
+  # time.timeZone = "America/Monterrey";
+  time.timeZone = "Europe/Stockholm";
   i18n.defaultLocale = "en_US.UTF-8";
 
   nixpkgs.config.allowUnfree = true;
