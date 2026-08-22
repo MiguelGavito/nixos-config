@@ -60,6 +60,11 @@ in
 {
   elnavio = mylib.nixosSystem (modules // args // { 
     inherit system username mylib;
-    specialArgs = { inherit username inputs system; };
+
+    specialArgs = { 
+      inherit username inputs system; 
+      
+      pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages.${system};
+    };
   });
 }

@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsUnstable,
   ...
 }:
 {
@@ -7,7 +8,7 @@
     # creative
     inkscape # vector graphics
     krita # digital painting
-    musescore # music notation
+    pkgsUnstable.musescore # music notation
     
     # 3d modeling (large, can be disabled)
     blender
