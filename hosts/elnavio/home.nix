@@ -40,6 +40,9 @@
   home.packages = [
     pkgs.font-awesome
     pkgs.adwaita-icon-theme
+
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-cjk-serif
   ];
 }
 

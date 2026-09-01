@@ -1,11 +1,16 @@
-{pkgs, ...}: {
+{
+  pkgs, 
+  pkgsUnstable,
+  ...
+}: 
+{
   home.packages = with pkgs; [
     # onedrive
     nextcloud-client
 
     libreoffice-still
     onlyoffice-desktopeditors
-    obsidian
+    pkgsUnstable.obsidian
 
     # ferdium
 
