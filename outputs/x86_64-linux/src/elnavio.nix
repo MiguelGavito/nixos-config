@@ -64,7 +64,10 @@ in
     specialArgs = { 
       inherit username inputs system; 
       
-      pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages.${system};
+      pkgsUnstable = import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     };
   });
 }
