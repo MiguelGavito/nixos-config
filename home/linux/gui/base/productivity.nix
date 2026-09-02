@@ -14,6 +14,8 @@
 
     # ferdium
 
+    thunderbird
+
     calibre
   ];
 }
